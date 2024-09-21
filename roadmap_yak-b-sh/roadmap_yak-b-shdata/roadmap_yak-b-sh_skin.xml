@@ -1,0 +1,959 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.19-pr16">
+
+    
+  <!-- Spot Style - Mayak point -->
+
+
+  <style name="IconMayakpoint"
+         url="%FIRSTXML%/spots/pin_2d_shadowed_user_defaultpoint8.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconMayakpoint"
+         onout="onoutIconMayakpoint"
+
+
+         width="80"
+         height="prop"
+         />
+  <action name="onhoverIconMayakpoint">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconMayakpoint">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+<!-- ********** -->
+<!-- Circles Control Bar castom -->
+<!-- id : CirclesControlBar -->
+<!-- ********** -->
+
+  <krpano CirclesControlBarbarbuilt="false" CirclesControlBarbackgroundwidthwhenclosed="0" CirclesControlBarbackgroundwidthwhenopened="0" CirclesControlBarIsOpened="false" />
+  <events name="CirclesControlBarevents" 
+    onxmlcomplete="CirclesControlBarbuildMenuBar();" 
+
+	openvideointerface="CirclesControlBarHideControlBar();"
+	closevideointerface="CirclesControlBarShowControlBar();"
+
+    keep="true" />
+
+
+<action name="CirclesControlBarHideControlBar">
+	set(layer[CirclesControlBar_menu_bg].visible, false);
+</action>
+<action name="CirclesControlBarShowControlBar">
+	set(layer[CirclesControlBar_menu_bg].visible, true);
+</action>
+
+  <action name="CirclesControlBarbuildMenuBar">
+    ifnot (CirclesControlBarbarbuilt, CirclesControlBarbuildMenu(); set(CirclesControlBarbarbuilt, true););
+  </action>
+
+  <style name="CirclesControlBar_btn_style"
+         keep="true"
+         edge="right"
+         align="right"
+         x="0" y="0"
+         width="40" height="40"
+         crop="0|0|60|60"
+         onovercrop="0|60|60|60"
+         ondowncrop="0|120|60|60"
+         onhover="showTooltip('plugin', CirclesControlBarmenuTooltipStyle, bottom);"
+         onout="hideTooltip();"
+         />
+  <style name="CirclesControlBar_btn_style_off"
+         keep="true"
+         edge="right"
+         align="right"
+         x="0" y="0"
+         width="40" height="40"
+         onhover="showTooltip('plugin', CirclesControlBarmenuTooltipStyle, bottom);"
+         onout="hideTooltip();"
+         />
+
+  <layer name="CirclesControlBar_menu_bg"
+         keep="true"
+         type="container"
+         zorder="1"
+         width="40"
+         height="40"
+         align="bottom"
+         x="0" y="10"
+         maskchildren="true"
+         rotate="0"
+         visible="false"
+         >
+
+
+    <layer name="CirclesControlBarbtn_ctrlmode_move_to"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_move_to.png"
+            style="CirclesControlBar_btn_style"
+            tooltip="CirclesControlBarctrlmodeMoveTip"
+            onclick="setControlModeMoveTo();
+"
+            visible="false"
+            devices="desktop"
+            />
+    <layer name="CirclesControlBarbtn_ctrlmode_drag_to"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_drag_to.png"
+            style="CirclesControlBar_btn_style"
+            tooltip="CirclesControlBarctrlmodeDragTip"
+            onclick="setControlModeDragTo();
+"
+            visible="false"
+            devices="desktop"
+            />
+
+
+
+    <layer name="CirclesControlBarbtn_prev_pano"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_previous_scene.png"
+            onclick="loadPreviousScene();
+"
+            style="CirclesControlBar_btn_style"
+            tooltip="CirclesControlBarprevSceneTip"
+            visible="false"
+            />
+    <layer name="CirclesControlBarbtn_next_pano"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_next_scene.png"
+            onclick="loadNextScene();
+"
+            style="CirclesControlBar_btn_style"
+            tooltip="CirclesControlBarnextSceneTip"
+            visible="false"
+            />
+
+
+
+    <layer name="CirclesControlBarbtn_openfs"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_enter_fs.png"
+            onclick="enterFullscreen();
+"
+            style="CirclesControlBar_btn_style"
+            visible="false"
+            devices="fullscreensupport"
+            tooltip="CirclesControlBaropenFsTip"
+            />
+    <layer name="CirclesControlBarbtn_closefs"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_close_fs.png"
+            onclick="exitFullscreen();
+"
+            style="CirclesControlBar_btn_style"
+            visible="false"
+            devices="fullscreensupport"
+            tooltip="CirclesControlBarcloseFsTip"
+            />
+
+
+
+
+
+ </layer>
+
+
+
+
+
+	<events name="CirclesControlBarcontrolmodechangedevent" 
+		oncontrolmodechanged="CirclesControlBarupdateControlModeButtons();" 
+		keep="true" />
+	<action name="CirclesControlBarHideControlModeButtons">
+		set(layer[CirclesControlBarbtn_ctrlmode_move_to].visible, false);
+		set(layer[CirclesControlBarbtn_ctrlmode_drag_to].visible, false);
+	</action>
+	<action name="CirclesControlBarShowControlModeButtons">
+		if (tour_controlmodemousetype == "moveto",
+			set(layer[CirclesControlBarbtn_ctrlmode_drag_to].visible, true);
+			set(layer[CirclesControlBarbtn_ctrlmode_move_to].visible, false);
+		,
+			set(layer[CirclesControlBarbtn_ctrlmode_move_to].visible, true);
+			set(layer[CirclesControlBarbtn_ctrlmode_drag_to].visible, false);
+		);
+	</action>
+	<action name="CirclesControlBarupdateControlModeButtons">
+	if (device.desktop,
+		if (tour_displaycontrols,
+			CirclesControlBarShowControlModeButtons();
+		,
+			CirclesControlBarHideControlModeButtons();
+		);
+	,
+		CirclesControlBarHideControlModeButtons();
+	);
+	</action>
+
+	<events name="CirclesControlBarhideshowcontrolsevent" 
+		hidetourcontrols="CirclesControlBarhideMenuControls();" 
+		showtourcontrols="CirclesControlBarshowMenuControls();" 
+		keep="true" />
+
+  <action name="CirclesControlBarhideMenuControls">
+    set(CirclesControlBarIsOpened, false);
+if (scene.count GT 1,
+	set(layer[CirclesControlBarbtn_next_pano].visible, false);
+	set(layer[CirclesControlBarbtn_prev_pano].visible, false);
+);
+
+
+	CirclesControlBarupdateFullscreenButtons();
+
+
+
+
+	CirclesControlBarupdateControlModeButtons();
+
+
+
+
+	set(layer[CirclesControlBar_menu_bg].width, get(CirclesControlBarbackgroundwidthwhenclosed));
+
+	set(layer[CirclesControlBar_menu_bg].visible, true);
+	set(layer[CirclesControlBar_menu_bg].alpha, 0.0);
+  </action>
+  <action name="CirclesControlBarshowMenuControls">
+    set(CirclesControlBarIsOpened, true);
+	set(layer[CirclesControlBar_menu_bg].visible, true);
+	set(layer[CirclesControlBar_menu_bg].alpha, 1.0);
+if (scene.count GT 1,
+	set(layer[CirclesControlBarbtn_next_pano].visible, true);
+	set(layer[CirclesControlBarbtn_prev_pano].visible, true);
+);
+
+
+	CirclesControlBarupdateFullscreenButtons();
+
+
+
+
+	CirclesControlBarupdateControlModeButtons();
+
+
+
+    set(layer[CirclesControlBar_menu_bg].width, get(CirclesControlBarbackgroundwidthwhenopened));
+  </action>
+
+
+
+
+  <events name="CirclesControlBarmenufullscreenchangeevent"
+          onenterfullscreen="CirclesControlBarupdateFullscreenButtons();"
+          onexitfullscreen="CirclesControlBarupdateFullscreenButtons();"
+          keep="true"/>
+	<action name="CirclesControlBarHideFullscreenButtons">
+		set(layer[CirclesControlBarbtn_openfs].visible , false);
+		set(layer[CirclesControlBarbtn_closefs].visible, false);
+	</action>
+	<action name="CirclesControlBarShowFullscreenButtons">
+		if (device.fullscreensupport,
+			if(tour_fullscreen,
+				set(layer[CirclesControlBarbtn_openfs].visible , false);
+				set(layer[CirclesControlBarbtn_closefs].visible, true);
+			,
+				set(layer[CirclesControlBarbtn_openfs].visible ,true);
+				set(layer[CirclesControlBarbtn_closefs].visible,false);
+			);
+		,
+			CirclesControlBarHideFullscreenButtons();
+		);
+	</action>
+	<action name="CirclesControlBarupdateFullscreenButtons">
+		if (tour_displaycontrols,
+			CirclesControlBarShowFullscreenButtons();
+		,
+			CirclesControlBarHideFullscreenButtons();
+		);
+	</action>
+
+
+
+<layer name="CirclesControlBarmenuTooltipStyle"
+	keep="true"
+	enabled="false"
+	capture="false"
+	url="%FIRSTXML%/graphics/textfield.swf"
+	align="center"
+	background="false"
+	border="false"
+	css="color:#000000;font-family:Helvetica;font-weight:bold;font-size:14px;text-align:left;"
+	height="20"
+	autoheight="true"
+	autowidth="auto"
+	xoffset="0"
+	yoffset="0"
+	padding="2"
+	selectable="false"
+	zorder="0"
+	visible="false"
+	html=""
+	edge="bottom"
+/>
+  <action name="CirclesControlBarbuildMenu">
+    
+    set(CirclesControlBarbutton_pos, 0);
+
+
+
+      if (device.fullscreensupport,
+        set(layer[CirclesControlBarbtn_openfs].x , get(CirclesControlBarbutton_pos));
+        set(layer[CirclesControlBarbtn_closefs].x, get(CirclesControlBarbutton_pos));
+        inc(CirclesControlBarbutton_pos, 45);
+      );
+
+
+
+
+
+    if (device.desktop,
+      set(layer[CirclesControlBarbtn_ctrlmode_drag_to].x, get(CirclesControlBarbutton_pos));
+      set(layer[CirclesControlBarbtn_ctrlmode_move_to].x, get(CirclesControlBarbutton_pos));
+      inc(CirclesControlBarbutton_pos, 45);
+    );
+
+
+
+
+
+    if (scene.count GT 1,
+        set(layer[CirclesControlBarbtn_next_pano].x, get(CirclesControlBarbutton_pos));
+        inc(CirclesControlBarbutton_pos, 45);
+        set(layer[CirclesControlBarbtn_prev_pano].x, get(CirclesControlBarbutton_pos));
+        inc(CirclesControlBarbutton_pos, 45);
+      );
+
+
+
+      dec(CirclesControlBarbutton_pos, 5);
+
+      set(CirclesControlBarbackgroundwidthwhenopened, get(CirclesControlBarbutton_pos));
+
+
+    
+      set(layer[CirclesControlBar_menu_bg].width, get(CirclesControlBarbackgroundwidthwhenopened));
+	
+	
+	
+    </action>
+
+	<events name="CirclesControlBarStartTourEvents" onTourStart="CirclesControlBarCallOnStartTour();" keep="true" />
+	
+	<action name="CirclesControlBarCallOnStartTour">
+		
+		showTourControls();
+
+	</action>
+
+
+
+<!-- ********** -->
+<!-- Small Gallery Bar - Scene specific -->
+<!-- id : gallerybarforasinglepano -->
+<!-- ********** -->
+
+  <krpano gallerybarforasinglepanobuilt="false" gallerybarforasinglepanoBuildable="false" />
+  <events name="gallerybarforasinglepanoevents"
+          onxmlcomplete="gallerybarforasinglepanobuildBar();"
+          hidetourcontrols="hidegallerybarforasinglepano();"
+          showtourcontrols="showgallerybarforasinglepano();"
+          keep="true"/>
+  <action name="gallerybarforasinglepanobuildBar">
+    ifnot (gallerybarforasinglepanobuilt,
+      set(gallerybarforasinglepanoBuildable, true);
+      gallerybarforasinglepanothumbbar_addimage(0,%FIRSTXML%/graphics/gallerybarforasinglepano/mayak_most_foto.jpg);
+      set(gallerybarforasinglepanobuilt, true);
+      
+    );
+  </action>
+
+  <events name="gallerybarforasinglepanoStartEvents" onPanoStart="showgallerybarforasinglepano();" onTourStart="showgallerybarforasinglepano();" keep="true" />
+
+
+
+  <layer name="gallerybarforasinglepanobackground" type="container" keep="true"
+         bgcolor="0xffffff"
+         bgalpha="0.20000000000000001"
+         alpha="1.0"
+         align="bottomright"
+         x="10"
+         y="0"
+         zorder="2"
+         visible="false"
+         height="50"
+         width="85"
+         />
+
+  <action name="hidegallerybarforasinglepano">
+	gallerybarforasinglepanothumbbar_set_visible(false);
+  </action>
+  <action name="showgallerybarforasinglepano">
+    set(displaythegallery_gallerybarforasinglepano, false);
+    if(tour_displaycontrols,
+
+    if (xml.scene == pano18, set(displaythegallery_gallerybarforasinglepano, true); );
+    );
+    if (displaythegallery_gallerybarforasinglepano,
+      if(gallerybarforasinglepanoBuildable,
+        gallerybarforasinglepanothumbbar_set_visible(true);
+      );
+    ,
+      hidegallerybarforasinglepano();
+    );
+  </action>
+
+
+  <action name="gallerybarforasinglepanothumbbar_addimage">
+    txtadd(pname, 'gallerybarforasinglepanoPicture', %1);
+    addplugin(get(pname));
+    set(layer[%pname].zorder, 3);
+    set(layer[%pname].url, %2);
+    set(layer[%pname].align, bottomright);
+    set(layer[%pname].width, 85);
+    set(layer[%pname].height, 50);
+    set(layer[%pname].onclick, gallerybarforasinglepano_showimage(get(name)));
+    set(layer[%pname].visible, false);
+    set(layer[%pname].keep, true);
+
+    
+    set(layer[%pname].y, 0);
+
+    mul(tmp, 85, %1);
+    add(tmp, tmp, 0);
+    add(layer[%pname].x, 10, tmp );
+
+
+    copy(layer[%pname].thumbx, layer[%pname].x);
+    copy(layer[%pname].thumby, layer[%pname].y);
+  </action>
+
+  <action name="gallerybarforasinglepano_showimage">
+    gallerybarforasinglepano_hide_allimages();
+
+    set(layer[%1].zorder, 4);
+
+    push(layer[%1].width);
+    push(layer[%1].height);
+    layer[%1].resetsize();
+    copy(layer[%1].originalwidth , layer[%1].width);
+    copy(layer[%1].originalheight, layer[%1].height);
+    pop(layer[%1].height);
+    pop(layer[%1].width);
+
+    set(imgwidth , get(layer[%1].originalwidth));
+    set(imgheight, get(layer[%1].originalheight));
+
+    set(maxwidth, get(stagewidth));
+    sub(maxwidth, get(stagewidth), 0);
+
+    set(maxheight, get(stageheight));
+    sub(maxheight, get(stageheight), 100);
+
+    if(imgwidth GT maxwidth,
+      mul(imgheight, imgheight, maxwidth);
+      div(imgheight, imgheight, imgwidth);
+      copy(imgwidth, maxwidth);
+    );
+
+    if(imgheight GT maxheight,
+      mul(imgwidth, imgwidth, maxheight);
+      div(imgwidth, imgwidth, imgheight);
+      copy(imgheight, maxheight);
+    );
+
+    tween(layer[%1].width , get(imgwidth));
+    tween(layer[%1].height, get(imgheight));
+
+    layer[%1].changeorigin(center,center);
+
+    tween(layer[%1].x, 0);
+    tween(layer[%1].y, 0);
+
+    set(layer[%1].onclick, gallerybarforasinglepano_hideimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano_hideimage">
+    layer[%1].changeorigin(bottomright,bottomright);
+
+    set(layer[%1].zorder, 3);
+
+    tween(layer[%1].width , 85);
+    tween(layer[%1].height, 50);
+    tween(layer[%1].x, get(layer[%1].thumbx));
+    tween(layer[%1].y, get(layer[%1].thumby));
+
+    set(layer[%1].onclick, gallerybarforasinglepano_showimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano_hide_allimages">
+    gallerybarforasinglepano_hideimage(gallerybarforasinglepanoPicture0);
+  </action>
+
+  <action name="gallerybarforasinglepanothumbbar_set_visible">
+    set(layer[gallerybarforasinglepanoPicture0].visible,%1);
+    set(layer[gallerybarforasinglepanobackground].visible, %1);
+  </action>
+
+<!-- ********** -->
+<!-- Small Gallery Bar - Scene specific1 -->
+<!-- id : gallerybarforasinglepano1 -->
+<!-- ********** -->
+
+  <krpano gallerybarforasinglepano1built="false" gallerybarforasinglepano1Buildable="false" />
+  <events name="gallerybarforasinglepano1events"
+          onxmlcomplete="gallerybarforasinglepano1buildBar();"
+          hidetourcontrols="hidegallerybarforasinglepano1();"
+          showtourcontrols="showgallerybarforasinglepano1();"
+          keep="true"/>
+  <action name="gallerybarforasinglepano1buildBar">
+    ifnot (gallerybarforasinglepano1built,
+      set(gallerybarforasinglepano1Buildable, true);
+      gallerybarforasinglepano1thumbbar_addimage(0,%FIRSTXML%/graphics/gallerybarforasinglepano1/mayak_pered_zdaniem_foto1.jpg);
+      set(gallerybarforasinglepano1built, true);
+      
+    );
+  </action>
+
+  <events name="gallerybarforasinglepano1StartEvents" onPanoStart="showgallerybarforasinglepano1();" onTourStart="showgallerybarforasinglepano1();" keep="true" />
+
+
+
+  <layer name="gallerybarforasinglepano1background" type="container" keep="true"
+         bgcolor="0xffffff"
+         bgalpha="0.20000000000000001"
+         alpha="1.0"
+         align="bottomright"
+         x="10"
+         y="0"
+         zorder="5"
+         visible="false"
+         height="50"
+         width="85"
+         />
+
+  <action name="hidegallerybarforasinglepano1">
+	gallerybarforasinglepano1thumbbar_set_visible(false);
+  </action>
+  <action name="showgallerybarforasinglepano1">
+    set(displaythegallery_gallerybarforasinglepano1, false);
+    if(tour_displaycontrols,
+
+    );
+    if (displaythegallery_gallerybarforasinglepano1,
+      if(gallerybarforasinglepano1Buildable,
+        gallerybarforasinglepano1thumbbar_set_visible(true);
+      );
+    ,
+      hidegallerybarforasinglepano1();
+    );
+  </action>
+
+
+  <action name="gallerybarforasinglepano1thumbbar_addimage">
+    txtadd(pname, 'gallerybarforasinglepano1Picture', %1);
+    addplugin(get(pname));
+    set(layer[%pname].zorder, 6);
+    set(layer[%pname].url, %2);
+    set(layer[%pname].align, bottomright);
+    set(layer[%pname].width, 85);
+    set(layer[%pname].height, 50);
+    set(layer[%pname].onclick, gallerybarforasinglepano1_showimage(get(name)));
+    set(layer[%pname].visible, false);
+    set(layer[%pname].keep, true);
+
+    
+    set(layer[%pname].y, 0);
+
+    mul(tmp, 85, %1);
+    add(tmp, tmp, 0);
+    add(layer[%pname].x, 10, tmp );
+
+
+    copy(layer[%pname].thumbx, layer[%pname].x);
+    copy(layer[%pname].thumby, layer[%pname].y);
+  </action>
+
+  <action name="gallerybarforasinglepano1_showimage">
+    gallerybarforasinglepano1_hide_allimages();
+
+    set(layer[%1].zorder, 7);
+
+    push(layer[%1].width);
+    push(layer[%1].height);
+    layer[%1].resetsize();
+    copy(layer[%1].originalwidth , layer[%1].width);
+    copy(layer[%1].originalheight, layer[%1].height);
+    pop(layer[%1].height);
+    pop(layer[%1].width);
+
+    set(imgwidth , get(layer[%1].originalwidth));
+    set(imgheight, get(layer[%1].originalheight));
+
+    set(maxwidth, get(stagewidth));
+    sub(maxwidth, get(stagewidth), 0);
+
+    set(maxheight, get(stageheight));
+    sub(maxheight, get(stageheight), 100);
+
+    if(imgwidth GT maxwidth,
+      mul(imgheight, imgheight, maxwidth);
+      div(imgheight, imgheight, imgwidth);
+      copy(imgwidth, maxwidth);
+    );
+
+    if(imgheight GT maxheight,
+      mul(imgwidth, imgwidth, maxheight);
+      div(imgwidth, imgwidth, imgheight);
+      copy(imgheight, maxheight);
+    );
+
+    tween(layer[%1].width , get(imgwidth));
+    tween(layer[%1].height, get(imgheight));
+
+    layer[%1].changeorigin(center,center);
+
+    tween(layer[%1].x, 0);
+    tween(layer[%1].y, 0);
+
+    set(layer[%1].onclick, gallerybarforasinglepano1_hideimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano1_hideimage">
+    layer[%1].changeorigin(bottomright,bottomright);
+
+    set(layer[%1].zorder, 6);
+
+    tween(layer[%1].width , 85);
+    tween(layer[%1].height, 50);
+    tween(layer[%1].x, get(layer[%1].thumbx));
+    tween(layer[%1].y, get(layer[%1].thumby));
+
+    set(layer[%1].onclick, gallerybarforasinglepano1_showimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano1_hide_allimages">
+    gallerybarforasinglepano1_hideimage(gallerybarforasinglepano1Picture0);
+  </action>
+
+  <action name="gallerybarforasinglepano1thumbbar_set_visible">
+    set(layer[gallerybarforasinglepano1Picture0].visible,%1);
+    set(layer[gallerybarforasinglepano1background].visible, %1);
+  </action>
+
+<!-- ********** -->
+<!-- szadi_zdania -->
+<!-- id : gallerybarforasinglepano2 -->
+<!-- ********** -->
+
+  <krpano gallerybarforasinglepano2built="false" gallerybarforasinglepano2Buildable="false" />
+  <events name="gallerybarforasinglepano2events"
+          onxmlcomplete="gallerybarforasinglepano2buildBar();"
+          hidetourcontrols="hidegallerybarforasinglepano2();"
+          showtourcontrols="showgallerybarforasinglepano2();"
+          keep="true"/>
+  <action name="gallerybarforasinglepano2buildBar">
+    ifnot (gallerybarforasinglepano2built,
+      set(gallerybarforasinglepano2Buildable, true);
+      gallerybarforasinglepano2thumbbar_addimage(0,%FIRSTXML%/graphics/gallerybarforasinglepano2/mayak_szadi_zdania_foto2.jpg);
+      set(gallerybarforasinglepano2Buildable, true);
+      gallerybarforasinglepano2thumbbar_addimage(1,%FIRSTXML%/graphics/gallerybarforasinglepano2/mayak_szadi_zdania_foto1.jpg);
+      set(gallerybarforasinglepano2built, true);
+      
+    );
+  </action>
+
+  <events name="gallerybarforasinglepano2StartEvents" onPanoStart="showgallerybarforasinglepano2();" onTourStart="showgallerybarforasinglepano2();" keep="true" />
+
+
+
+  <layer name="gallerybarforasinglepano2background" type="container" keep="true"
+         bgcolor="0xffffff"
+         bgalpha="0.20000000000000001"
+         alpha="1.0"
+         align="bottomright"
+         x="10"
+         y="0"
+         zorder="8"
+         visible="false"
+         height="60"
+         width="180"
+         />
+
+  <action name="hidegallerybarforasinglepano2">
+	gallerybarforasinglepano2thumbbar_set_visible(false);
+  </action>
+  <action name="showgallerybarforasinglepano2">
+    set(displaythegallery_gallerybarforasinglepano2, false);
+    if(tour_displaycontrols,
+
+    );
+    if (displaythegallery_gallerybarforasinglepano2,
+      if(gallerybarforasinglepano2Buildable,
+        gallerybarforasinglepano2thumbbar_set_visible(true);
+      );
+    ,
+      hidegallerybarforasinglepano2();
+    );
+  </action>
+
+
+  <action name="gallerybarforasinglepano2thumbbar_addimage">
+    txtadd(pname, 'gallerybarforasinglepano2Picture', %1);
+    addplugin(get(pname));
+    set(layer[%pname].zorder, 9);
+    set(layer[%pname].url, %2);
+    set(layer[%pname].align, bottomright);
+    set(layer[%pname].width, 90);
+    set(layer[%pname].height, 60);
+    set(layer[%pname].onclick, gallerybarforasinglepano2_showimage(get(name)));
+    set(layer[%pname].visible, false);
+    set(layer[%pname].keep, true);
+
+    
+    set(layer[%pname].y, 0);
+
+    mul(tmp, 90, %1);
+    add(tmp, tmp, 0);
+    add(layer[%pname].x, 10, tmp );
+
+
+    copy(layer[%pname].thumbx, layer[%pname].x);
+    copy(layer[%pname].thumby, layer[%pname].y);
+  </action>
+
+  <action name="gallerybarforasinglepano2_showimage">
+    gallerybarforasinglepano2_hide_allimages();
+
+    set(layer[%1].zorder, 10);
+
+    push(layer[%1].width);
+    push(layer[%1].height);
+    layer[%1].resetsize();
+    copy(layer[%1].originalwidth , layer[%1].width);
+    copy(layer[%1].originalheight, layer[%1].height);
+    pop(layer[%1].height);
+    pop(layer[%1].width);
+
+    set(imgwidth , get(layer[%1].originalwidth));
+    set(imgheight, get(layer[%1].originalheight));
+
+    set(maxwidth, get(stagewidth));
+    sub(maxwidth, get(stagewidth), 0);
+
+    set(maxheight, get(stageheight));
+    sub(maxheight, get(stageheight), 120);
+
+    if(imgwidth GT maxwidth,
+      mul(imgheight, imgheight, maxwidth);
+      div(imgheight, imgheight, imgwidth);
+      copy(imgwidth, maxwidth);
+    );
+
+    if(imgheight GT maxheight,
+      mul(imgwidth, imgwidth, maxheight);
+      div(imgwidth, imgwidth, imgheight);
+      copy(imgheight, maxheight);
+    );
+
+    tween(layer[%1].width , get(imgwidth));
+    tween(layer[%1].height, get(imgheight));
+
+    layer[%1].changeorigin(center,center);
+
+    tween(layer[%1].x, 0);
+    tween(layer[%1].y, 0);
+
+    set(layer[%1].onclick, gallerybarforasinglepano2_hideimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano2_hideimage">
+    layer[%1].changeorigin(bottomright,bottomright);
+
+    set(layer[%1].zorder, 9);
+
+    tween(layer[%1].width , 90);
+    tween(layer[%1].height, 60);
+    tween(layer[%1].x, get(layer[%1].thumbx));
+    tween(layer[%1].y, get(layer[%1].thumby));
+
+    set(layer[%1].onclick, gallerybarforasinglepano2_showimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano2_hide_allimages">
+    gallerybarforasinglepano2_hideimage(gallerybarforasinglepano2Picture0);
+    gallerybarforasinglepano2_hideimage(gallerybarforasinglepano2Picture1);
+  </action>
+
+  <action name="gallerybarforasinglepano2thumbbar_set_visible">
+    set(layer[gallerybarforasinglepano2Picture0].visible,%1);
+    set(layer[gallerybarforasinglepano2Picture1].visible,%1);
+    set(layer[gallerybarforasinglepano2background].visible, %1);
+  </action>
+
+<!-- ********** -->
+<!-- 1etaj -->
+<!-- id : gallerybarforasinglepano3 -->
+<!-- ********** -->
+
+  <krpano gallerybarforasinglepano3built="false" gallerybarforasinglepano3Buildable="false" />
+  <events name="gallerybarforasinglepano3events"
+          onxmlcomplete="gallerybarforasinglepano3buildBar();"
+          hidetourcontrols="hidegallerybarforasinglepano3();"
+          showtourcontrols="showgallerybarforasinglepano3();"
+          keep="true"/>
+  <action name="gallerybarforasinglepano3buildBar">
+    ifnot (gallerybarforasinglepano3built,
+      set(gallerybarforasinglepano3Buildable, true);
+      gallerybarforasinglepano3thumbbar_addimage(0,%FIRSTXML%/graphics/gallerybarforasinglepano3/mayak_1etaj_foto1.jpg);
+      set(gallerybarforasinglepano3built, true);
+      
+    );
+  </action>
+
+  <events name="gallerybarforasinglepano3StartEvents" onPanoStart="showgallerybarforasinglepano3();" onTourStart="showgallerybarforasinglepano3();" keep="true" />
+
+
+
+  <layer name="gallerybarforasinglepano3background" type="container" keep="true"
+         bgcolor="0xffffff"
+         bgalpha="0.20000000000000001"
+         alpha="1.0"
+         align="bottomright"
+         x="10"
+         y="0"
+         zorder="11"
+         visible="false"
+         height="50"
+         width="85"
+         />
+
+  <action name="hidegallerybarforasinglepano3">
+	gallerybarforasinglepano3thumbbar_set_visible(false);
+  </action>
+  <action name="showgallerybarforasinglepano3">
+    set(displaythegallery_gallerybarforasinglepano3, false);
+    if(tour_displaycontrols,
+
+    if (xml.scene == pano114, set(displaythegallery_gallerybarforasinglepano3, true); );
+    );
+    if (displaythegallery_gallerybarforasinglepano3,
+      if(gallerybarforasinglepano3Buildable,
+        gallerybarforasinglepano3thumbbar_set_visible(true);
+      );
+    ,
+      hidegallerybarforasinglepano3();
+    );
+  </action>
+
+
+  <action name="gallerybarforasinglepano3thumbbar_addimage">
+    txtadd(pname, 'gallerybarforasinglepano3Picture', %1);
+    addplugin(get(pname));
+    set(layer[%pname].zorder, 12);
+    set(layer[%pname].url, %2);
+    set(layer[%pname].align, bottomright);
+    set(layer[%pname].width, 85);
+    set(layer[%pname].height, 50);
+    set(layer[%pname].onclick, gallerybarforasinglepano3_showimage(get(name)));
+    set(layer[%pname].visible, false);
+    set(layer[%pname].keep, true);
+
+    
+    set(layer[%pname].y, 0);
+
+    mul(tmp, 85, %1);
+    add(tmp, tmp, 0);
+    add(layer[%pname].x, 10, tmp );
+
+
+    copy(layer[%pname].thumbx, layer[%pname].x);
+    copy(layer[%pname].thumby, layer[%pname].y);
+  </action>
+
+  <action name="gallerybarforasinglepano3_showimage">
+    gallerybarforasinglepano3_hide_allimages();
+
+    set(layer[%1].zorder, 13);
+
+    push(layer[%1].width);
+    push(layer[%1].height);
+    layer[%1].resetsize();
+    copy(layer[%1].originalwidth , layer[%1].width);
+    copy(layer[%1].originalheight, layer[%1].height);
+    pop(layer[%1].height);
+    pop(layer[%1].width);
+
+    set(imgwidth , get(layer[%1].originalwidth));
+    set(imgheight, get(layer[%1].originalheight));
+
+    set(maxwidth, get(stagewidth));
+    sub(maxwidth, get(stagewidth), 0);
+
+    set(maxheight, get(stageheight));
+    sub(maxheight, get(stageheight), 100);
+
+    if(imgwidth GT maxwidth,
+      mul(imgheight, imgheight, maxwidth);
+      div(imgheight, imgheight, imgwidth);
+      copy(imgwidth, maxwidth);
+    );
+
+    if(imgheight GT maxheight,
+      mul(imgwidth, imgwidth, maxheight);
+      div(imgwidth, imgwidth, imgheight);
+      copy(imgheight, maxheight);
+    );
+
+    tween(layer[%1].width , get(imgwidth));
+    tween(layer[%1].height, get(imgheight));
+
+    layer[%1].changeorigin(center,center);
+
+    tween(layer[%1].x, 0);
+    tween(layer[%1].y, 0);
+
+    set(layer[%1].onclick, gallerybarforasinglepano3_hideimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano3_hideimage">
+    layer[%1].changeorigin(bottomright,bottomright);
+
+    set(layer[%1].zorder, 12);
+
+    tween(layer[%1].width , 85);
+    tween(layer[%1].height, 50);
+    tween(layer[%1].x, get(layer[%1].thumbx));
+    tween(layer[%1].y, get(layer[%1].thumby));
+
+    set(layer[%1].onclick, gallerybarforasinglepano3_showimage(%1) );
+  </action>
+
+  <action name="gallerybarforasinglepano3_hide_allimages">
+    gallerybarforasinglepano3_hideimage(gallerybarforasinglepano3Picture0);
+  </action>
+
+  <action name="gallerybarforasinglepano3thumbbar_set_visible">
+    set(layer[gallerybarforasinglepano3Picture0].visible,%1);
+    set(layer[gallerybarforasinglepano3background].visible, %1);
+  </action>
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+</krpano>
