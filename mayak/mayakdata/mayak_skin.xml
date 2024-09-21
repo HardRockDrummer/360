@@ -149,10 +149,18 @@
   <events name="CirclesControlBarevents" 
     onxmlcomplete="CirclesControlBarbuildMenuBar();" 
 
+	openvideointerface="CirclesControlBarHideControlBar();"
+	closevideointerface="CirclesControlBarShowControlBar();"
 
     keep="true" />
 
 
+<action name="CirclesControlBarHideControlBar">
+	set(layer[CirclesControlBar_menu_bg].visible, false);
+</action>
+<action name="CirclesControlBarShowControlBar">
+	set(layer[CirclesControlBar_menu_bg].visible, true);
+</action>
 
   <action name="CirclesControlBarbuildMenuBar">
     ifnot (CirclesControlBarbarbuilt, CirclesControlBarbuildMenu(); set(CirclesControlBarbarbuilt, true););
@@ -281,7 +289,7 @@
 	</action>
 	<action name="CirclesControlBarupdateControlModeButtons">
 	if (device.desktop,
-		if (CirclesControlBarIsOpened,
+		if (tour_displaycontrols,
 			CirclesControlBarShowControlModeButtons();
 		,
 			CirclesControlBarHideControlModeButtons();
@@ -291,6 +299,10 @@
 	);
 	</action>
 
+	<events name="CirclesControlBarhideshowcontrolsevent" 
+		hidetourcontrols="CirclesControlBarhideMenuControls();" 
+		showtourcontrols="CirclesControlBarshowMenuControls();" 
+		keep="true" />
 
   <action name="CirclesControlBarhideMenuControls">
     set(CirclesControlBarIsOpened, false);
@@ -313,10 +325,12 @@ if (scene.count GT 1,
 	set(layer[CirclesControlBar_menu_bg].width, get(CirclesControlBarbackgroundwidthwhenclosed));
 
 	set(layer[CirclesControlBar_menu_bg].visible, true);
+	set(layer[CirclesControlBar_menu_bg].alpha, 0.0);
   </action>
   <action name="CirclesControlBarshowMenuControls">
     set(CirclesControlBarIsOpened, true);
 	set(layer[CirclesControlBar_menu_bg].visible, true);
+	set(layer[CirclesControlBar_menu_bg].alpha, 1.0);
 if (scene.count GT 1,
 	set(layer[CirclesControlBarbtn_next_pano].visible, true);
 	set(layer[CirclesControlBarbtn_prev_pano].visible, true);
@@ -360,7 +374,7 @@ if (scene.count GT 1,
 		);
 	</action>
 	<action name="CirclesControlBarupdateFullscreenButtons">
-		if (CirclesControlBarIsOpened,
+		if (tour_displaycontrols,
 			CirclesControlBarShowFullscreenButtons();
 		,
 			CirclesControlBarHideFullscreenButtons();
@@ -441,7 +455,8 @@ if (scene.count GT 1,
 	
 	<action name="CirclesControlBarCallOnStartTour">
 		
-		CirclesControlBarshowMenuControls();
+		showTourControls();
+
 	</action>
 
 
@@ -454,6 +469,8 @@ if (scene.count GT 1,
   <krpano gallerybarforasinglepanobuilt="false" gallerybarforasinglepanoBuildable="false" />
   <events name="gallerybarforasinglepanoevents"
           onxmlcomplete="gallerybarforasinglepanobuildBar();"
+          hidetourcontrols="hidegallerybarforasinglepano();"
+          showtourcontrols="showgallerybarforasinglepano();"
           keep="true"/>
   <action name="gallerybarforasinglepanobuildBar">
     ifnot (gallerybarforasinglepanobuilt,
@@ -490,10 +507,9 @@ if (scene.count GT 1,
   </action>
   <action name="showgallerybarforasinglepano">
     set(displaythegallery_gallerybarforasinglepano, false);
+    if(tour_displaycontrols,
 
-
-    if (xml.scene == pano18, set(displaythegallery_gallerybarforasinglepano, true); );
-
+    );
     if (displaythegallery_gallerybarforasinglepano,
       if(gallerybarforasinglepanoBuildable,
         gallerybarforasinglepanothumbbar_set_visible(true);
@@ -1076,6 +1092,11 @@ if (scene.count GT 1,
       removelayer(displayedStandardImage);
     ););
   </action>
+
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
 
 
   <!-- Fullscreen Management -->
