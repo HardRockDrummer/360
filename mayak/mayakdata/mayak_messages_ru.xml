@@ -13,15 +13,12 @@
 
 
   <data name="ru_pano12_title"><![CDATA[mayak_karta2]]></data>
-  <data name="ru_spotpoint27_tooltip"><![CDATA[Назад]]></data>
 
 
   <data name="ru_pano14_title"><![CDATA[mayak_karta3]]></data>
-  <data name="ru_spotpoint29_tooltip"><![CDATA[Назад]]></data>
 
 
   <data name="ru_pano16_title"><![CDATA[mayak_karta4]]></data>
-  <data name="ru_spotpoint31_tooltip"><![CDATA[Назад]]></data>
 
 
   <data name="ru_pano18_title"><![CDATA[mayak_most]]></data>
@@ -45,23 +42,23 @@
   <data name="ru_pano128_title"><![CDATA[mayak_2etaj]]></data>
 
 
-	<data name="ru_spotmap108_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap109_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap110_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap111_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap116_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap122_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap130_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap152_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap153_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap154_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap155_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap156_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap157_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap158_tooltip"><![CDATA[]]></data>
 
 
 
 
-  <data name="ru_CirclesControlBaropenFsTip"><![CDATA[Enter fullscreen]]></data>
-  <data name="ru_CirclesControlBarcloseFsTip"><![CDATA[Exit fullscreen]]></data>
-  <data name="ru_CirclesControlBarenterVRTip"><![CDATA[VR mode]]></data>
-  <data name="ru_CirclesControlBarenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
-  <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Change control mode]]></data>
-  <data name="ru_CirclesControlBarctrlmodeMoveTip"><![CDATA[Change control mode]]></data>
+  <data name="ru_CirclesControlBarprevSceneTip"><![CDATA[Предыдущая панорама]]></data>
+  <data name="ru_CirclesControlBarnextSceneTip"><![CDATA[Следующая панорама]]></data>
+  <data name="ru_CirclesControlBaropenFsTip"><![CDATA[На полный экран]]></data>
+  <data name="ru_CirclesControlBarcloseFsTip"><![CDATA[Скукожить =)]]></data>
+  <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Смена управления]]></data>
+  <data name="ru_CirclesControlBarctrlmodeMoveTip"><![CDATA[Смена управления]]></data>
   <data name="ru_gallerybarforasinglepanopanoid1020"><![CDATA[pano18]]></data>
   <data name="ru_gallerybarforasinglepano1panoid1020"><![CDATA[pano84]]></data>
   <data name="ru_gallerybarforasinglepano2panoid1020"><![CDATA[pano120]]></data>

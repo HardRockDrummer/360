@@ -6,7 +6,7 @@
         tour_soundsvolume="100"
         tour_autotourenabled="false"
         tour_autorotateenabled="false"
-        tour_controlmodemousetype="moveto"
+        tour_controlmodemousetype="drag"
         tour_controlmodetouchtype="drag"
         tour_fullscreen="false"
         tour_displaymap="false"
@@ -33,7 +33,7 @@
   </action>
 
   <!-- Control Mode Management -->
-  <control mouse="moveto" touch="drag" />
+  <control mouse="drag" touch="drag" />
   <action name="setControlModeDragTo">setControlMode(drag);</action>
   <action name="setControlModeMoveTo">setControlMode(moveto);</action>
   <action name="setControlMode">
