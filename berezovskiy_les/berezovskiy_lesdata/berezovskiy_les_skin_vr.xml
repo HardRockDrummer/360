@@ -142,11 +142,11 @@
          url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint5.png"
          visible="false"
          frame="0"
-         lastframe="18"
-         framewidth="66"
-         frameheight="66"
+         lastframe="12"
+         framewidth="85"
+         frameheight="85"
          stopspotsequence="false"
-         crop="0|0|66|66"
+         crop="0|0|85|85"
          edge="center"
          onloaded="startspotanimation(0.1);"
          onhover="onhoverIconbelkanavetkah"
@@ -241,11 +241,11 @@
          url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint10.png"
          visible="false"
          frame="0"
-         lastframe="18"
-         framewidth="66"
-         frameheight="66"
+         lastframe="12"
+         framewidth="85"
+         frameheight="85"
          stopspotsequence="false"
-         crop="0|0|66|66"
+         crop="0|0|85|85"
          edge="center"
          onloaded="startspotanimation(0.1);"
          onhover="onhoverIconbelkanasmotrovoi"
@@ -274,11 +274,11 @@
          url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint11.png"
          visible="false"
          frame="0"
-         lastframe="18"
-         framewidth="66"
-         frameheight="66"
+         lastframe="12"
+         framewidth="85"
+         frameheight="85"
          stopspotsequence="false"
-         crop="0|0|66|66"
+         crop="0|0|85|85"
          edge="center"
          onloaded="startspotanimation(0.1);"
          onhover="onhoverIconbelkanasmotrovoi1"
@@ -299,11 +299,6 @@
 
 
 
-  <!-- FLOORPLAN -->
-  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
-  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
-
-
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);js(setFullscreen(false));</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);js(setFullscreen(true));</action>
@@ -320,6 +315,11 @@
   <action name="enterFullScreenFallback">set(fullscreen,true);</action>
   
   <action name="resizeFullScreenEvent">delayedcall(0,updatescreen(););</action>
+
+  <!-- FLOORPLAN -->
+  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
+  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
+
 
   <action name="displayImage">
     if (layer[displayedStandardImage],
