@@ -115,10 +115,10 @@ tween(alpha, 1);
 
 
     
-  <!-- Spot Style - Л+Ш -->
+  <!-- Spot Style - l_sha -->
 
 
-  <style name="IconЛ+Ш"
+  <style name="Iconl_sha"
          url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint3.png"
          visible="false"
          frame="0"
@@ -129,17 +129,17 @@ tween(alpha, 1);
          crop="0|0|85|85"
          edge="center"
          onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconЛ+Ш"
-         onout="onoutIconЛ+Ш"
+         onhover="onhoverIconl_sha"
+         onout="onoutIconl_sha"
 
 
          width="25"
          height="prop"
          />
-  <action name="onhoverIconЛ+Ш">
+  <action name="onhoverIconl_sha">
     showtooltip('hotspot');
   </action>
-  <action name="onoutIconЛ+Ш">
+  <action name="onoutIconl_sha">
     hideTooltip();
 
 
@@ -149,10 +149,10 @@ tween(alpha, 1);
 
 
     
-  <!-- Spot Style - Крюк -->
+  <!-- Spot Style - kruk -->
 
 
-  <style name="IconКрюк"
+  <style name="Iconkruk"
          url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint4.png"
          visible="false"
          frame="0"
@@ -163,17 +163,17 @@ tween(alpha, 1);
          crop="0|0|85|85"
          edge="center"
          onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconКрюк"
-         onout="onoutIconКрюк"
+         onhover="onhoverIconkruk"
+         onout="onoutIconkruk"
 
 
          width="25"
          height="prop"
          />
-  <action name="onhoverIconКрюк">
+  <action name="onhoverIconkruk">
     showtooltip('hotspot');
   </action>
-  <action name="onoutIconКрюк">
+  <action name="onoutIconkruk">
     hideTooltip();
 
 
@@ -648,7 +648,7 @@ tween(alpha, 1);
     );
   </action>
   <action name="preloadSounds">
-    preloadsound("_10861085_10911083108010941072_1093.mp3");
+    preloadsound("sound_street.mp3");
   </action>
 
   <action name="play3DLocalSounds">
