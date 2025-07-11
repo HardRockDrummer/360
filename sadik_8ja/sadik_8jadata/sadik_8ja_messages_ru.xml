@@ -9,35 +9,35 @@
 
 
 
-  <data name="ru_pano44_title"><![CDATA[Фасад]]></data>
+  <data name="ru_pano44_title"><![CDATA[fasad]]></data>
 
 
-  <data name="ru_pano46_title"><![CDATA[Вход]]></data>
+  <data name="ru_pano46_title"><![CDATA[vhod]]></data>
   <data name="ru_spotpoint77_tooltip"><![CDATA[Назад]]></data>
 
 
-  <data name="ru_pano20_title"><![CDATA[Холл первого этажа]]></data>
+  <data name="ru_pano20_title"><![CDATA[holl_pervogo_etaja]]></data>
 
 
-  <data name="ru_pano10_title"><![CDATA[Комната слава Холл]]></data>
+  <data name="ru_pano10_title"><![CDATA[komnata_sprava_holl]]></data>
 
 
-  <data name="ru_pano13_title"><![CDATA[Комната слева лестница]]></data>
+  <data name="ru_pano13_title"><![CDATA[Komnata_sleva_lestnica]]></data>
 
 
-  <data name="ru_pano11_title"><![CDATA[Комната слева ЛК у двери]]></data>
+  <data name="ru_pano11_title"><![CDATA[komnata_sleva_lk_u_dvery]]></data>
 
 
-  <data name="ru_pano16_title"><![CDATA[Комната справа холл]]></data>
+  <data name="ru_pano16_title"><![CDATA[komnata_sprava_holl]]></data>
 
 
-  <data name="ru_pano14_title"><![CDATA[Комната справа ЛК]]></data>
+  <data name="ru_pano14_title"><![CDATA[komnata_sleva_lk]]></data>
 
 
-  <data name="ru_pano18_title"><![CDATA[ЛК первый этаж]]></data>
+  <data name="ru_pano18_title"><![CDATA[lk_pervii_etaj]]></data>
 
 
-  <data name="ru_pano19_title"><![CDATA[Площадка между этажами]]></data>
+  <data name="ru_pano19_title"><![CDATA[ploshadka_mejdu_etajami]]></data>
 
 
   <data name="ru_pano17_title"><![CDATA[ЛК второй этаж]]></data>
