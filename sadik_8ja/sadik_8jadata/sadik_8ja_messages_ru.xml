@@ -16,9 +16,6 @@
   <data name="ru_spotpoint77_tooltip"><![CDATA[Назад]]></data>
 
 
-  <data name="ru_pano20_title"><![CDATA[holl_pervogo_etaja]]></data>
-
-
   <data name="ru_pano10_title"><![CDATA[komnata_sprava_holl]]></data>
 
 
@@ -52,18 +49,21 @@
   <data name="ru_pano228_title"><![CDATA[Gde podval]]></data>
 
 
-	<data name="ru_spotmap412_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap413_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap414_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap415_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap416_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap417_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap418_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap419_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap420_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap421_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap422_tooltip"><![CDATA[Назад]]></data>
-	<data name="ru_spotmap423_tooltip"><![CDATA[Назад]]></data>
+  <data name="ru_pano424_title"><![CDATA[holl_1etaj]]></data>
+
+
+	<data name="ru_spotmap441_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap442_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap443_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap444_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap445_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap446_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap447_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap448_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap449_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap450_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap451_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap452_tooltip"><![CDATA[Назад]]></data>
 
 
 
