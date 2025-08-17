@@ -10,7 +10,7 @@
 		<meta name="video_height" content="480"/>
 		<link rel="image_src" href="sadik_8jadata/thumbnail.jpg" />
 
-		<meta name="generator" content="On dusty paths Pro V2.5.14 64bits" />
+		<meta name="generator" content="On dusty paths" />
 
 
 		<meta property="og:title" content="sadik_8ja | Virtual tour" />
@@ -151,7 +151,7 @@
 				}
 				//apply focus on the visit if not embedded into an iframe
 				if(top.location === self.location){
-					kOn dusty paths.Focus.applyFocus();
+					kpanotour.Focus.applyFocus();
 				}
 			}
 			function unloadPlayer(){
@@ -160,12 +160,12 @@
 				}
 
 			}
-			var currentOn dusty pathsPlayer = null;
+			var currentPanotourPlayer = null;
 			function getCurrentTourPlayer() {
-				if (currentOn dusty pathsPlayer == null) {
-					currentOn dusty pathsPlayer = document.getElementById('krpanoSWFObject');
+				if (currentPanotourPlayer == null) {
+					currentPanotourPlayer = document.getElementById('krpanoSWFObject');
 				}
-				return currentOn dusty pathsPlayer;
+				return currentPanotourPlayer;
 			}
 		    function isVRModeRequested() {
 				var querystr = window.location.search.substring(1);
