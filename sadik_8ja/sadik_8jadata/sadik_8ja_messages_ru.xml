@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano>
+
+<!-- ************************ -->
+<!--         Messages         -->
+<!-- ************************ -->
+
+  <data name="ru_project_title"><![CDATA[New Project]]></data>
+
+
+
+  <data name="ru_pano44_title"><![CDATA[fasad]]></data>
+
+
+  <data name="ru_pano46_title"><![CDATA[vhod]]></data>
+  <data name="ru_spotpoint77_tooltip"><![CDATA[Назад]]></data>
+
+
+  <data name="ru_pano10_title"><![CDATA[komnata_sprava_holl]]></data>
+
+
+  <data name="ru_pano13_title"><![CDATA[Komnata_sleva_lestnica]]></data>
+
+
+  <data name="ru_pano11_title"><![CDATA[komnata_sleva_lk_u_dvery]]></data>
+
+
+  <data name="ru_pano16_title"><![CDATA[komnata_sprava_holl]]></data>
+
+
+  <data name="ru_pano14_title"><![CDATA[komnata_sleva_lk]]></data>
+
+
+  <data name="ru_pano18_title"><![CDATA[lk_pervii_etaj]]></data>
+
+
+  <data name="ru_pano19_title"><![CDATA[ploshadka_mejdu_etajami]]></data>
+
+
+  <data name="ru_pano17_title"><![CDATA[ЛК второй этаж]]></data>
+
+
+  <data name="ru_pano12_title"><![CDATA[Комната слева второй этаж]]></data>
+
+
+  <data name="ru_pano15_title"><![CDATA[Комната справа второй этаж]]></data>
+
+
+  <data name="ru_pano228_title"><![CDATA[Gde podval]]></data>
+
+
+  <data name="ru_pano424_title"><![CDATA[holl_1etaj]]></data>
+
+
+	<data name="ru_spotmap441_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap442_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap443_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap444_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap445_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap446_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap447_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap448_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap449_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap450_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap451_tooltip"><![CDATA[Назад]]></data>
+	<data name="ru_spotmap452_tooltip"><![CDATA[Назад]]></data>
+
+
+
+
+  <data name="ru_CirclesControlBaropenFsTip"><![CDATA[Полный экран]]></data>
+  <data name="ru_CirclesControlBarcloseFsTip"><![CDATA[Полный экран]]></data>
+  <data name="ru_CirclesControlBarenterVRTip"><![CDATA[VR mode]]></data>
+  <data name="ru_CirclesControlBarenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
+  <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Сменить управление]]></data>
+  <data name="ru_CirclesControlBarctrlmodeMoveTip"><![CDATA[Сменить управление]]></data>
+  <data name="ru_gallerybarforasinglepanopanoid1020"><![CDATA[pano46]]></data>
+  <data name="ru_gallerybarforasinglepano1panoid1020"><![CDATA[pano20]]></data>
+  <data name="ru_gallerybarforasinglepano2panoid1020"><![CDATA[pano18]]></data>
+  <data name="ru_gallerybarforasinglepano4panoid1020"><![CDATA[pano15]]></data>
+
+
+  <data name="ru_vr_setup_hmd0"><![CDATA[SELECT YOUR HMD]]></data>
+  <data name="ru_vr_setup_advanced"><![CDATA[ADVANCED SETTINGS]]></data>
+  <data name="ru_vr_setup_title"><![CDATA[WEB VR SETTINGS]]></data>
+  <data name="ru_vr_setup_dvn1"><![CDATA[Device:]]></data>
+  <data name="ru_vr_setup_siz1"><![CDATA[Screen size:]]></data>
+  <data name="ru_vr_setup_ipd1"><![CDATA[IPD:]]></data>
+  <data name="ru_vr_setup_hmd1"><![CDATA[HMD:]]></data>
+  <data name="ru_vr_setup_hmd3"><![CDATA[Customize]]></data>
+  <data name="ru_vr_setup_cal"><![CDATA[Calibrate gyroscope]]></data>
+  <data name="ru_vr_setup_sav"><![CDATA[SAVE]]></data>
+  <data name="ru_vr_setup_rst"><![CDATA[RESET]]></data>
+  <data name="ru_vr_setup_simple"><![CDATA[SIMPLE]]></data>
+  <data name="ru_vr_setup_cls"><![CDATA[CLOSE]]></data>
+  <data name="ru_vr_setup_m31"><![CDATA[HMD SETTINGS]]></data>
+  <data name="ru_vr_setup_fov1"><![CDATA[FOV:]]></data>
+  <data name="ru_vr_setup_dst1"><![CDATA[Distortion:]]></data>
+  <data name="ru_vr_setup_d2tx"><![CDATA[Distortion 2:]]></data>
+  <data name="ru_vr_setup_vig1"><![CDATA[Vignette:]]></data>
+  <data name="ru_vr_setup_cac1"><![CDATA[Chromatic aberration:]]></data>
+  <data name="ru_vr_setup_olp1"><![CDATA[Overlap:]]></data>
+  <data name="ru_vr_setup_m35"><![CDATA[RETURN]]></data>
+  <data name="ru_vr_setup_cb1"><![CDATA[GYROSCOPE]]></data>
+  <data name="ru_vr_setup_cb2"><![CDATA[Place the device on a flat and[br]stable surface and tab CALIBRATE[br]to correct a gyroscope drifting.]]></data>
+  <data name="ru_vr_setup_cb3"><![CDATA[CALIBRATE]]></data>
+  <data name="ru_vr_setup_cb4"><![CDATA[RESET]]></data>
+  <data name="ru_vr_setup_cb5"><![CDATA[RETURN]]></data>
+  <data name="ru_vr_setup_cb6"><![CDATA[Calibrating...]]></data>
+  <data name="ru_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
+  <data name="ru_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
+  <data name="ru_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</krpano>
