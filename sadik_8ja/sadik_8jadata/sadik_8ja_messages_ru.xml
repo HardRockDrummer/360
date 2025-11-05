@@ -75,6 +75,8 @@
   <data name="ru_CirclesControlBargyroNotTip"><![CDATA[Gyroscope is unavailable]]></data>
   <data name="ru_CirclesControlBarenterVRTip"><![CDATA[VR mode]]></data>
   <data name="ru_CirclesControlBarenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
+  <data name="ru_CirclesControlBardisplayControlsTip"><![CDATA[Show controls]]></data>
+  <data name="ru_CirclesControlBarhideControlsTip"><![CDATA[Hide controls]]></data>
   <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Сменить управление]]></data>
   <data name="ru_CirclesControlBarctrlmodeMoveTip"><![CDATA[Сменить управление]]></data>
   <data name="ru_gallerybarforasinglepanopanoid1020"><![CDATA[pano46]]></data>

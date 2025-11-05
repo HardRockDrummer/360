@@ -365,6 +365,22 @@ tween(alpha, 1);
 
 
 
+    <layer name="CirclesControlBarbtn_hidecontrols"
+           url="%FIRSTXML%/graphics/circlescontrolbar/btn_hide_controls.png"
+           style="CirclesControlBar_btn_style"
+           onclick="CirclesControlBarhideMenuControls();hideTourControls();
+"
+           visible="false"
+           tooltip="CirclesControlBarhideControlsTip"
+           />
+    <layer name="CirclesControlBarbtn_showcontrols"
+           url="%FIRSTXML%/graphics/circlescontrolbar/btn_show_controls.png"
+           style="CirclesControlBar_btn_style"
+           onclick="CirclesControlBarshowMenuControls();showTourControls();
+"
+           tooltip="CirclesControlBardisplayControlsTip"
+           visible="false"
+           />
  </layer>
 
 
@@ -507,6 +523,8 @@ tween(alpha, 1);
 
   <action name="CirclesControlBarhideMenuControls">
     set(CirclesControlBarIsOpened, false);
+    set(layer[CirclesControlBarbtn_hidecontrols].visible, false);
+    set(layer[CirclesControlBarbtn_showcontrols].visible, true);
 
 
 	CirclesControlBarupdateFullscreenButtons();
@@ -527,6 +545,8 @@ tween(alpha, 1);
   </action>
   <action name="CirclesControlBarshowMenuControls">
     set(CirclesControlBarIsOpened, true);
+    set(layer[CirclesControlBarbtn_hidecontrols].visible, true);
+    set(layer[CirclesControlBarbtn_showcontrols].visible, false);
 	set(layer[CirclesControlBar_menu_bg].visible, true);
 
 
@@ -602,6 +622,11 @@ tween(alpha, 1);
   <action name="CirclesControlBarbuildMenu">
     
     set(CirclesControlBarbutton_pos, 0);
+
+	set(CirclesControlBarbackgroundwidthwhenclosed, 40);
+    set(layer[CirclesControlBarbtn_hidecontrols].x, get(CirclesControlBarbutton_pos));
+    set(layer[CirclesControlBarbtn_showcontrols].x, get(CirclesControlBarbutton_pos));
+    inc(CirclesControlBarbutton_pos, 45);
 
 
 
@@ -1284,6 +1309,11 @@ tween(alpha, 1);
     set(layer[gallerybarforasinglepano4Picture1].visible,%1);
     set(layer[gallerybarforasinglepano4background].visible, %1);
   </action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
 
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>

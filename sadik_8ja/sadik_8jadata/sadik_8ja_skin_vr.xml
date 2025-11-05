@@ -216,6 +216,11 @@ tween(alpha, 1);
 
 
 
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
