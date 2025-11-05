@@ -68,6 +68,8 @@
 
 
 
+  <data name="ru_CirclesControlBarprevSceneTip"><![CDATA[Previous scene]]></data>
+  <data name="ru_CirclesControlBarnextSceneTip"><![CDATA[Next scene]]></data>
   <data name="ru_CirclesControlBaropenFsTip"><![CDATA[Полный экран]]></data>
   <data name="ru_CirclesControlBarcloseFsTip"><![CDATA[Полный экран]]></data>
   <data name="ru_CirclesControlBargyroOnTip"><![CDATA[Enable gyroscope]]></data>

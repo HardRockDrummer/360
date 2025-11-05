@@ -340,6 +340,23 @@ tween(alpha, 1);
 
 
 
+    <layer name="CirclesControlBarbtn_prev_pano"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_previous_scene.png"
+            onclick="loadPreviousScene();
+"
+            style="CirclesControlBar_btn_style"
+            tooltip="CirclesControlBarprevSceneTip"
+            visible="false"
+            />
+    <layer name="CirclesControlBarbtn_next_pano"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_next_scene.png"
+            onclick="loadNextScene();
+"
+            style="CirclesControlBar_btn_style"
+            tooltip="CirclesControlBarnextSceneTip"
+            visible="false"
+            />
+
 
 
     <layer name="CirclesControlBarbtn_openfs"
@@ -525,6 +542,10 @@ tween(alpha, 1);
     set(CirclesControlBarIsOpened, false);
     set(layer[CirclesControlBarbtn_hidecontrols].visible, false);
     set(layer[CirclesControlBarbtn_showcontrols].visible, true);
+if (scene.count GT 1,
+	set(layer[CirclesControlBarbtn_next_pano].visible, false);
+	set(layer[CirclesControlBarbtn_prev_pano].visible, false);
+);
 
 
 	CirclesControlBarupdateFullscreenButtons();
@@ -548,6 +569,10 @@ tween(alpha, 1);
     set(layer[CirclesControlBarbtn_hidecontrols].visible, true);
     set(layer[CirclesControlBarbtn_showcontrols].visible, false);
 	set(layer[CirclesControlBar_menu_bg].visible, true);
+if (scene.count GT 1,
+	set(layer[CirclesControlBarbtn_next_pano].visible, true);
+	set(layer[CirclesControlBarbtn_prev_pano].visible, true);
+);
 
 
 	CirclesControlBarupdateFullscreenButtons();
@@ -666,6 +691,13 @@ tween(alpha, 1);
         );
       );
 
+
+    if (scene.count GT 1,
+        set(layer[CirclesControlBarbtn_next_pano].x, get(CirclesControlBarbutton_pos));
+        inc(CirclesControlBarbutton_pos, 45);
+        set(layer[CirclesControlBarbtn_prev_pano].x, get(CirclesControlBarbutton_pos));
+        inc(CirclesControlBarbutton_pos, 45);
+      );
 
 
 
