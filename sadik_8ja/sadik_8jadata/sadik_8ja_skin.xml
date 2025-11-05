@@ -269,34 +269,6 @@ tween(alpha, 1);
          visible="false"
          >
 
-    <layer name="CirclesControlBarbtn_gyroscope_off"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_gyroscope.png"
-            style="CirclesControlBar_btn_style"
-            onclick="disableGyroscope();
-"
-            devices="html5"
-            tooltip="CirclesControlBargyroOffTip"
-            visible="false"
-            />
-    <layer name="CirclesControlBarbtn_gyroscope_on"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_gyroscope.png"
-            style="CirclesControlBar_btn_style"
-            onclick="enableGyroscope();
-"
-            devices="html5"
-            tooltip="CirclesControlBargyroOnTip"
-            visible="false"
-            />
-    <layer name="CirclesControlBarbtn_gyroscope_not"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_gyroscope_off.png"
-            style="CirclesControlBar_btn_style_off"
-            enabled="true"
-            capture="false"
-            devices="html5"
-            tooltip="CirclesControlBargyroNotTip"
-            visible="false"
-            />
-
     <layer name="CirclesControlBarbtn_enter_vr"
             url="%FIRSTXML%/graphics/circlescontrolbar/btn_vr_mode.png"
             style="CirclesControlBar_btn_style"
@@ -339,23 +311,6 @@ tween(alpha, 1);
             />
 
 
-
-    <layer name="CirclesControlBarbtn_prev_pano"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_previous_scene.png"
-            onclick="loadPreviousScene();
-"
-            style="CirclesControlBar_btn_style"
-            tooltip="CirclesControlBarprevSceneTip"
-            visible="false"
-            />
-    <layer name="CirclesControlBarbtn_next_pano"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_next_scene.png"
-            onclick="loadNextScene();
-"
-            style="CirclesControlBar_btn_style"
-            tooltip="CirclesControlBarnextSceneTip"
-            visible="false"
-            />
 
 
 
@@ -447,67 +402,6 @@ tween(alpha, 1);
 	);
 	</action>
 
-  <events name="CirclesControlBargyroscopeavailableevent"
-          ongyroscopeavailable="CirclesControlBarupdateGyroscopeButtonsAvailability();"
-          ongyroscopeunavailable="CirclesControlBarupdateGyroscopeButtonsAvailability();"
-          ongyroscopeon="CirclesControlBarenableGyroscopeButtons(true);"
-          ongyroscopeoff="CirclesControlBarenableGyroscopeButtons(false);"
-          keep="true" devices="html5" />
-  <krpano CirclesControlBarmenugyroscopeavailable="false" CirclesControlBarmenugyroscopeenabled="false"/>
-  <action name="CirclesControlBarupdateGyroscopeButtonsAvailability">
-    if (tour_gyroscopedevices,
-      set(CirclesControlBarmenugyroscopeavailable, true);
-      CirclesControlBarupdateGyroscopeButtons();
-    ,
-      set(CirclesControlBarmenugyroscopeavailable, false);
-      CirclesControlBarupdateGyroscopeButtons();
-    );
-  </action>
-  <action name="CirclesControlBarenableGyroscopeButtons">
-    if (tour_gyroscopedevices,
-      set(CirclesControlBarmenugyroscopeenabled, %1);
-      CirclesControlBarupdateGyroscopeButtons();
-    );
-  </action>
-	<action name="CirclesControlBarHideGyroscopeButtons">
-		set(layer[CirclesControlBarbtn_gyroscope_off].visible, false);
-		set(layer[CirclesControlBarbtn_gyroscope_on].visible, false);
-		if('%1' == 'true' AND plugin[gyroscope],
-			set(layer[CirclesControlBarbtn_gyroscope_not].visible, true);
-		,
-			set(layer[CirclesControlBarbtn_gyroscope_not].visible, false);
-		);
-	</action>
-	<action name="CirclesControlBarShowGyroscopeButtons">
-		if (CirclesControlBarmenugyroscopeavailable,
-			if (CirclesControlBarmenugyroscopeenabled,
-				set(layer[CirclesControlBarbtn_gyroscope_off].visible, true);
-				set(layer[CirclesControlBarbtn_gyroscope_on].visible, false);
-			,
-				set(layer[CirclesControlBarbtn_gyroscope_off].visible, false);
-				set(layer[CirclesControlBarbtn_gyroscope_on].visible, true);
-			);
-			set(layer[CirclesControlBarbtn_gyroscope_not].visible, false);
-		,
-			CirclesControlBarHideGyroscopeButtons(true);
-		);
-	</action>
-	<action name="CirclesControlBarupdateGyroscopeButtons">
-	if (tour_gyroscopedevices,
-		if (CirclesControlBarIsOpened,
-			CirclesControlBarShowGyroscopeButtons();
-		,
-			CirclesControlBarHideGyroscopeButtons();
-		);
-	,
-		if (CirclesControlBarIsOpened,
-			CirclesControlBarHideGyroscopeButtons(true);
-		,
-			CirclesControlBarHideGyroscopeButtons();
-		);
-	);
-	</action>
-
 
 	<events name="CirclesControlBarcontrolmodechangedevent" 
 		oncontrolmodechanged="CirclesControlBarupdateControlModeButtons();" 
@@ -542,17 +436,12 @@ tween(alpha, 1);
     set(CirclesControlBarIsOpened, false);
     set(layer[CirclesControlBarbtn_hidecontrols].visible, false);
     set(layer[CirclesControlBarbtn_showcontrols].visible, true);
-if (scene.count GT 1,
-	set(layer[CirclesControlBarbtn_next_pano].visible, false);
-	set(layer[CirclesControlBarbtn_prev_pano].visible, false);
-);
 
 
 	CirclesControlBarupdateFullscreenButtons();
 
 
 
-	CirclesControlBarupdateGyroscopeButtons();
 
 	CirclesControlBarupdateControlModeButtons();
 
@@ -569,17 +458,12 @@ if (scene.count GT 1,
     set(layer[CirclesControlBarbtn_hidecontrols].visible, true);
     set(layer[CirclesControlBarbtn_showcontrols].visible, false);
 	set(layer[CirclesControlBar_menu_bg].visible, true);
-if (scene.count GT 1,
-	set(layer[CirclesControlBarbtn_next_pano].visible, true);
-	set(layer[CirclesControlBarbtn_prev_pano].visible, true);
-);
 
 
 	CirclesControlBarupdateFullscreenButtons();
 
 
 
-	CirclesControlBarupdateGyroscopeButtons();
 	CirclesControlBarupdateVrButtons();
 
 	CirclesControlBarupdateControlModeButtons();
@@ -679,25 +563,6 @@ if (scene.count GT 1,
     );
 
 
-      if(plugin[gyroscope],
-        set(CirclesControlBarDisplayGyroscopeButton, false);
-        if (device.tablet, set(CirclesControlBarDisplayGyroscopeButton, true););
-        if (device.mobile, set(CirclesControlBarDisplayGyroscopeButton, true););
-        if(CirclesControlBarDisplayGyroscopeButton,
-          set(layer[CirclesControlBarbtn_gyroscope_on].x , get(CirclesControlBarbutton_pos));
-          set(layer[CirclesControlBarbtn_gyroscope_off].x, get(CirclesControlBarbutton_pos));
-          set(layer[CirclesControlBarbtn_gyroscope_not].x, get(CirclesControlBarbutton_pos));
-          inc(CirclesControlBarbutton_pos, 45);
-        );
-      );
-
-
-    if (scene.count GT 1,
-        set(layer[CirclesControlBarbtn_next_pano].x, get(CirclesControlBarbutton_pos));
-        inc(CirclesControlBarbutton_pos, 45);
-        set(layer[CirclesControlBarbtn_prev_pano].x, get(CirclesControlBarbutton_pos));
-        inc(CirclesControlBarbutton_pos, 45);
-      );
 
 
 
@@ -1342,31 +1207,6 @@ if (scene.count GT 1,
     set(layer[gallerybarforasinglepano4background].visible, %1);
   </action>
 
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
-  <!-- Fullscreen Management -->
-  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
-  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
-  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
-
-  
-  <events name="krpanoExitFullscreenEvent"
-    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
-    keep="true" />
-
-  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
-  <action name="enableGyroscope">
-    changeGyroscopeState(true);
-  </action>
-  <action name="disableGyroscope">
-    changeGyroscopeState(false);
-  </action>
-
-
   <action name="displayImage">
     if (layer[displayedStandardImage],
       if(layer[displayedStandardImage].doNotDeleteMe,
@@ -1571,6 +1411,23 @@ if (scene.count GT 1,
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
   <!-- Sounds Management -->
   <plugin name="soundinterface"
           preload="true"
