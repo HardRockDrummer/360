@@ -70,6 +70,9 @@
 
   <data name="ru_CirclesControlBaropenFsTip"><![CDATA[Полный экран]]></data>
   <data name="ru_CirclesControlBarcloseFsTip"><![CDATA[Полный экран]]></data>
+  <data name="ru_CirclesControlBargyroOnTip"><![CDATA[Enable gyroscope]]></data>
+  <data name="ru_CirclesControlBargyroOffTip"><![CDATA[Disable gyroscope]]></data>
+  <data name="ru_CirclesControlBargyroNotTip"><![CDATA[Gyroscope is unavailable]]></data>
   <data name="ru_CirclesControlBarenterVRTip"><![CDATA[VR mode]]></data>
   <data name="ru_CirclesControlBarenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
   <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Сменить управление]]></data>

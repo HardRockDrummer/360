@@ -269,6 +269,34 @@ tween(alpha, 1);
          visible="false"
          >
 
+    <layer name="CirclesControlBarbtn_gyroscope_off"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_gyroscope.png"
+            style="CirclesControlBar_btn_style"
+            onclick="disableGyroscope();
+"
+            devices="html5"
+            tooltip="CirclesControlBargyroOffTip"
+            visible="false"
+            />
+    <layer name="CirclesControlBarbtn_gyroscope_on"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_gyroscope.png"
+            style="CirclesControlBar_btn_style"
+            onclick="enableGyroscope();
+"
+            devices="html5"
+            tooltip="CirclesControlBargyroOnTip"
+            visible="false"
+            />
+    <layer name="CirclesControlBarbtn_gyroscope_not"
+            url="%FIRSTXML%/graphics/circlescontrolbar/btn_gyroscope_off.png"
+            style="CirclesControlBar_btn_style_off"
+            enabled="true"
+            capture="false"
+            devices="html5"
+            tooltip="CirclesControlBargyroNotTip"
+            visible="false"
+            />
+
     <layer name="CirclesControlBarbtn_enter_vr"
             url="%FIRSTXML%/graphics/circlescontrolbar/btn_vr_mode.png"
             style="CirclesControlBar_btn_style"
@@ -386,6 +414,67 @@ tween(alpha, 1);
 	);
 	</action>
 
+  <events name="CirclesControlBargyroscopeavailableevent"
+          ongyroscopeavailable="CirclesControlBarupdateGyroscopeButtonsAvailability();"
+          ongyroscopeunavailable="CirclesControlBarupdateGyroscopeButtonsAvailability();"
+          ongyroscopeon="CirclesControlBarenableGyroscopeButtons(true);"
+          ongyroscopeoff="CirclesControlBarenableGyroscopeButtons(false);"
+          keep="true" devices="html5" />
+  <krpano CirclesControlBarmenugyroscopeavailable="false" CirclesControlBarmenugyroscopeenabled="false"/>
+  <action name="CirclesControlBarupdateGyroscopeButtonsAvailability">
+    if (tour_gyroscopedevices,
+      set(CirclesControlBarmenugyroscopeavailable, true);
+      CirclesControlBarupdateGyroscopeButtons();
+    ,
+      set(CirclesControlBarmenugyroscopeavailable, false);
+      CirclesControlBarupdateGyroscopeButtons();
+    );
+  </action>
+  <action name="CirclesControlBarenableGyroscopeButtons">
+    if (tour_gyroscopedevices,
+      set(CirclesControlBarmenugyroscopeenabled, %1);
+      CirclesControlBarupdateGyroscopeButtons();
+    );
+  </action>
+	<action name="CirclesControlBarHideGyroscopeButtons">
+		set(layer[CirclesControlBarbtn_gyroscope_off].visible, false);
+		set(layer[CirclesControlBarbtn_gyroscope_on].visible, false);
+		if('%1' == 'true' AND plugin[gyroscope],
+			set(layer[CirclesControlBarbtn_gyroscope_not].visible, true);
+		,
+			set(layer[CirclesControlBarbtn_gyroscope_not].visible, false);
+		);
+	</action>
+	<action name="CirclesControlBarShowGyroscopeButtons">
+		if (CirclesControlBarmenugyroscopeavailable,
+			if (CirclesControlBarmenugyroscopeenabled,
+				set(layer[CirclesControlBarbtn_gyroscope_off].visible, true);
+				set(layer[CirclesControlBarbtn_gyroscope_on].visible, false);
+			,
+				set(layer[CirclesControlBarbtn_gyroscope_off].visible, false);
+				set(layer[CirclesControlBarbtn_gyroscope_on].visible, true);
+			);
+			set(layer[CirclesControlBarbtn_gyroscope_not].visible, false);
+		,
+			CirclesControlBarHideGyroscopeButtons(true);
+		);
+	</action>
+	<action name="CirclesControlBarupdateGyroscopeButtons">
+	if (tour_gyroscopedevices,
+		if (CirclesControlBarIsOpened,
+			CirclesControlBarShowGyroscopeButtons();
+		,
+			CirclesControlBarHideGyroscopeButtons();
+		);
+	,
+		if (CirclesControlBarIsOpened,
+			CirclesControlBarHideGyroscopeButtons(true);
+		,
+			CirclesControlBarHideGyroscopeButtons();
+		);
+	);
+	</action>
+
 
 	<events name="CirclesControlBarcontrolmodechangedevent" 
 		oncontrolmodechanged="CirclesControlBarupdateControlModeButtons();" 
@@ -424,6 +513,7 @@ tween(alpha, 1);
 
 
 
+	CirclesControlBarupdateGyroscopeButtons();
 
 	CirclesControlBarupdateControlModeButtons();
 
@@ -444,6 +534,7 @@ tween(alpha, 1);
 
 
 
+	CirclesControlBarupdateGyroscopeButtons();
 	CirclesControlBarupdateVrButtons();
 
 	CirclesControlBarupdateControlModeButtons();
@@ -537,6 +628,18 @@ tween(alpha, 1);
       inc(CirclesControlBarbutton_pos, 45);
     );
 
+
+      if(plugin[gyroscope],
+        set(CirclesControlBarDisplayGyroscopeButton, false);
+        if (device.tablet, set(CirclesControlBarDisplayGyroscopeButton, true););
+        if (device.mobile, set(CirclesControlBarDisplayGyroscopeButton, true););
+        if(CirclesControlBarDisplayGyroscopeButton,
+          set(layer[CirclesControlBarbtn_gyroscope_on].x , get(CirclesControlBarbutton_pos));
+          set(layer[CirclesControlBarbtn_gyroscope_off].x, get(CirclesControlBarbutton_pos));
+          set(layer[CirclesControlBarbtn_gyroscope_not].x, get(CirclesControlBarbutton_pos));
+          inc(CirclesControlBarbutton_pos, 45);
+        );
+      );
 
 
 
@@ -1182,33 +1285,26 @@ tween(alpha, 1);
     set(layer[gallerybarforasinglepano4background].visible, %1);
   </action>
 
-	<!-- WebVR plugin for VR availability tests -->
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
 
-	<plugin name="ptpvrmode" devices="html5" keep="true"
-		url="%FIRSTXML%/graphics/webvr.js"
-		mobilevr_support="true"
-		mobilevr_fake_support="false"
-		vr_cursor=""
-		vr_cursor_enabled="false"
-		onavailable="delayedcall(1, checkVrAvailability(););"
-		onunavailable="checkVrUnavailable();"
-		/>
-	<action name="checkVrAvailability">
-		if(plugin[ptpvrmode],
-			if (plugin[ptpvrmode].isavailable,
-				set(tour_vrdevices, true);
-				events.dispatch(onvravailable);
-			,
-				set(tour_vrdevices, false);
-			);
-		,
-			checkVrUnavailable();
-		);
-	</action>
-	<action name="checkVrUnavailable">
-		set(tour_vrdevices, false);
-		events.dispatch(onvrunavailable);
-	</action>
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <action name="enableGyroscope">
+    changeGyroscopeState(true);
+  </action>
+  <action name="disableGyroscope">
+    changeGyroscopeState(false);
+  </action>
+
+
   <action name="displayImage">
     if (layer[displayedStandardImage],
       if(layer[displayedStandardImage].doNotDeleteMe,
@@ -1386,18 +1482,33 @@ tween(alpha, 1);
   </action>
 
 
-  <!-- Fullscreen Management -->
-  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
-  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
-  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+	<!-- WebVR plugin for VR availability tests -->
 
-  
-  <events name="krpanoExitFullscreenEvent"
-    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
-    keep="true" />
-
-  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
+	<plugin name="ptpvrmode" devices="html5" keep="true"
+		url="%FIRSTXML%/graphics/webvr.js"
+		mobilevr_support="true"
+		mobilevr_fake_support="false"
+		vr_cursor=""
+		vr_cursor_enabled="false"
+		onavailable="delayedcall(1, checkVrAvailability(););"
+		onunavailable="checkVrUnavailable();"
+		/>
+	<action name="checkVrAvailability">
+		if(plugin[ptpvrmode],
+			if (plugin[ptpvrmode].isavailable,
+				set(tour_vrdevices, true);
+				events.dispatch(onvravailable);
+			,
+				set(tour_vrdevices, false);
+			);
+		,
+			checkVrUnavailable();
+		);
+	</action>
+	<action name="checkVrUnavailable">
+		set(tour_vrdevices, false);
+		events.dispatch(onvrunavailable);
+	</action>
   <!-- Sounds Management -->
   <plugin name="soundinterface"
           preload="true"
