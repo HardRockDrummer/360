@@ -28,14 +28,13 @@
   <data name="ru_CirclesControlBargyroOnTip"><![CDATA[Enable gyroscope]]></data>
   <data name="ru_CirclesControlBargyroOffTip"><![CDATA[Disable gyroscope]]></data>
   <data name="ru_CirclesControlBargyroNotTip"><![CDATA[Gyroscope is unavailable]]></data>
-  <data name="ru_CirclesControlBardisplayHelpTip"><![CDATA[Show help screen]]></data>
-  <data name="ru_CirclesControlBarhideHelpTip"><![CDATA[Hide help screen]]></data>
   <data name="ru_CirclesControlBarenterVRTip"><![CDATA[VR mode]]></data>
   <data name="ru_CirclesControlBarenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
   <data name="ru_CirclesControlBardisplayControlsTip"><![CDATA[Show controls]]></data>
   <data name="ru_CirclesControlBarhideControlsTip"><![CDATA[Hide controls]]></data>
   <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Change control mode]]></data>
   <data name="ru_CirclesControlBarctrlmodeMoveTip"><![CDATA[Change control mode]]></data>
+  <data name="ru_HomeLogopanoid"><![CDATA[pano10]]></data>
 
 
   <data name="ru_vr_setup_hmd0"><![CDATA[SELECT YOUR HMD]]></data>

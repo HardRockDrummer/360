@@ -193,23 +193,6 @@
 
 
 
-    <layer name="CirclesControlBarbtn_display_help"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_help.png"
-            onclick="CirclesControlBardisplayHelp();"
-            style="CirclesControlBar_btn_style"
-            devices="desktop"
-            visible="false"
-            tooltip="CirclesControlBardisplayHelpTip"
-            />
-    <layer name="CirclesControlBarbtn_close_help"
-            url="%FIRSTXML%/graphics/circlescontrolbar/btn_help.png"
-            onclick="CirclesControlBarcloseHelp();"
-            style="CirclesControlBar_btn_style"
-            visible="false"
-            devices="desktop"
-            tooltip="CirclesControlBarhideHelpTip"
-            />
-
 
 
     <layer name="CirclesControlBarbtn_hidecontrols"
@@ -375,7 +358,6 @@
 
 
 	CirclesControlBarupdateFullscreenButtons();
-	CirclesControlBarupdateHelpButtons();
 
 
 	CirclesControlBarupdateAutorotationButtons();
@@ -400,7 +382,6 @@
 
 
 	CirclesControlBarupdateFullscreenButtons();
-	CirclesControlBarupdateHelpButtons();
 
 
 	CirclesControlBarupdateAutorotationButtons();
@@ -414,76 +395,6 @@
 
     set(layer[CirclesControlBar_menu_bg].width, get(CirclesControlBarbackgroundwidthwhenopened));
   </action>
-
-  <layer name="CirclesControlBarhelpScreenBg"
-         align="center"
-         keep="true"
-         onclick="CirclesControlBarcloseHelp();"
-         url="%FIRSTXML%/graphics/circlescontrolbar/help_screen_bg.png"
-         visible="false"
-         rotate="-90"
-         height="50%"
-         width="prop"
-         zorder="97"
-         x="100%" />
-  <layer name="CirclesControlBarhelpScreenFg"
-         align="center"
-         keep="true"
-         onclick="CirclesControlBarcloseHelp();"
-         url="%FIRSTXML%/graphics/circlescontrolbar/help_screen_fg.png"
-         height="50%"
-         width="prop"
-         visible="false"
-         rotate="90"
-         zorder="98"
-         x="-100%"
-         displayed="false" />
-  <action name="CirclesControlBardisplayHelp">
-  if (device.desktop,
-    set(layer[CirclesControlBarhelpScreenFg].displayed,true);
-    set(layer[CirclesControlBarhelpScreenBg].visible,true);
-    set(layer[CirclesControlBarhelpScreenFg].visible,true);
-    tween(layer[CirclesControlBarhelpScreenFg].rotate,0, 1);
-    tween(layer[CirclesControlBarhelpScreenFg].x,0, 1);
-    tween(layer[CirclesControlBarhelpScreenBg].rotate,0, 1);
-    tween(layer[CirclesControlBarhelpScreenBg].x,0, 1);
-    CirclesControlBarupdateHelpButtons();
-  );
-  </action>
-  <action name="CirclesControlBarcloseHelp">
-  if (device.desktop,
-    set(layer[CirclesControlBarhelpScreenFg].displayed,false);
-    tween(layer[CirclesControlBarhelpScreenFg].rotate,  90, 1, easeOutQuad, set(layer[CirclesControlBarhelpScreenFg].visible,false););
-    tween(layer[CirclesControlBarhelpScreenFg].x, -100%, 1);
-    tween(layer[CirclesControlBarhelpScreenBg].rotate, -90, 1, easeOutQuad, set(layer[CirclesControlBarhelpScreenBg].visible,false););
-    tween(layer[CirclesControlBarhelpScreenBg].x, 100%, 1);
-    CirclesControlBarupdateHelpButtons();
-  );
-  </action>
-	<action name="CirclesControlBarHideHelpButtons">
-		set(layer[CirclesControlBarbtn_display_help].visible, false);
-		set(layer[CirclesControlBarbtn_close_help].visible, false);
-	</action>
-	<action name="CirclesControlBarShowHelpButtons">
-		if (layer[CirclesControlBarhelpScreenFg].displayed,
-			set(layer[CirclesControlBarbtn_close_help].visible, true);
-			set(layer[CirclesControlBarbtn_display_help].visible, false);
-		,
-			set(layer[CirclesControlBarbtn_display_help].visible, true);
-			set(layer[CirclesControlBarbtn_close_help].visible, false);
-		);
-	</action>
-	<action name="CirclesControlBarupdateHelpButtons">
-	if (device.desktop,
-		if (CirclesControlBarIsOpened,
-			CirclesControlBarShowHelpButtons();
-		,
-			CirclesControlBarHideHelpButtons();
-		);
-	,
-		CirclesControlBarHideHelpButtons();
-	);
-	</action>
 
 
 
@@ -578,12 +489,6 @@
 
 
 
-      if (device.desktop,
-        set(layer[CirclesControlBarbtn_display_help].x, get(CirclesControlBarbutton_pos));
-        set(layer[CirclesControlBarbtn_close_help].x  , get(CirclesControlBarbutton_pos));
-        inc(CirclesControlBarbutton_pos, 45);
-      );
-
       if (device.fullscreensupport,
         set(layer[CirclesControlBarbtn_openfs].x , get(CirclesControlBarbutton_pos));
         set(layer[CirclesControlBarbtn_closefs].x, get(CirclesControlBarbutton_pos));
@@ -648,6 +553,32 @@
 
 
 
+<!-- ********** -->
+<!-- Force Landscape on Mobile -->
+<!-- id : ForceLandscapeMobilePlugin -->
+<!-- ********** -->
+
+	<events name="mobileorientation_events" devices="mobile" keep="true" onresize="mobileorientation_portrait_mode_check();"/>
+
+	<action name="mobileorientation_portrait_mode_check" device="mobile">
+		div(aspect, stagewidth, stageheight);
+		if(aspect != lastaspect OR '%1' == 'true',
+			copy(lastaspect, aspect);
+			if(stagewidth GT stageheight,
+				tween(layer[mobileorientation_rotate_device_required].alpha, 0.0, 0.0);
+			,
+				tween(layer[mobileorientation_rotate_device_required].alpha, 1.0);
+				delayedcall(3.0, tween(layer[mobileorientation_rotate_device_required].alpha, 0.0, 1.0););
+			);
+		);
+	</action>	
+
+	<layer name="mobileorientation_rotate_device_required" keep="true" devices="mobile" 
+		url="%FIRSTXML%/graphics/rotate_device.png" width="80%" height="prop"
+		align="center" edge="center"
+		autoalpha="true" alpha="0.0"
+		enabled="false"
+		/>	
   <!-- Hide / Show Controls -->
   <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
   <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>

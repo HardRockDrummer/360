@@ -29,6 +29,44 @@
   <!-- unsupported kind of display : PointMap -->
 
 
+<!-- ********** -->
+<!-- Nadir/Zenith Home Button -->
+<!-- id : HomeLogo -->
+<!-- ********** -->
+
+  <hotspot ath="0" atv="-90"
+         zorder="0"
+         name="HomeLogo"
+         keep="true"
+           vr="true"
+           distorted="true"
+           depth="1000"
+         visible="false"
+         capture="false"
+         enable="true"
+
+         url="%FIRSTXML%/graphics/vr-homelogo/b.jpg" 
+         onclick="mainloadscene(pano10);"
+
+
+         />
+
+  <events name="HomeLogoevents" 
+    onTourStart="showHomeLogo();"
+    keep="true" />
+
+  <action name="hideHomeLogo">
+    set(hotspot[HomeLogo].visible, false);
+  </action>
+  <action name="showHomeLogo">
+      set(hotspot[HomeLogo].visible, true);
+  </action>
+
+
+
+  <events name="HomeLogoshowevents" onremovepano="hideHomeLogo" onPanoStart="showHomeLogo" keep="true"/>
+
+
   <!-- Hide / Show Controls -->
   <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
   <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
