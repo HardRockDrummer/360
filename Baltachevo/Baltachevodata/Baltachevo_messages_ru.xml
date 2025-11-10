@@ -102,7 +102,6 @@
   <data name="ru_spotpolygon470_tooltip"><![CDATA[Пройти]]></data>
 
 
-	<data name="ru_spotmap403_tooltip"><![CDATA[]]></data>
 	<data name="ru_spotmap404_tooltip"><![CDATA[]]></data>
 	<data name="ru_spotmap405_tooltip"><![CDATA[]]></data>
 	<data name="ru_spotmap406_tooltip"><![CDATA[]]></data>
@@ -120,6 +119,7 @@
 	<data name="ru_spotmap459_tooltip"><![CDATA[]]></data>
 	<data name="ru_spotmap463_tooltip"><![CDATA[]]></data>
 	<data name="ru_spotmap468_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap478_tooltip"><![CDATA[]]></data>
 
 
 
