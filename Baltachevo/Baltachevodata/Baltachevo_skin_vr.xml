@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <krpano version="1.19-pr16">
 
-    
-  <!-- Spot Style - Default Point Spot Style -->
-
-
-  <style name="IconDefaultPointSpotStyle"
-         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint0.png"
-         visible="false"
-         frame="0"
-         lastframe="12"
-         framewidth="50"
-         frameheight="50"
-         stopspotsequence="false"
-         crop="0|0|50|50"
-         edge="center"
-         alpha="0.8"
-         onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconDefaultPointSpotStyle"
-         onover="onoverIconDefaultPointSpotStyle"
-         onout="onoutIconDefaultPointSpotStyle"
-
-
-         />
-  <action name="onhoverIconDefaultPointSpotStyle">
-    showtooltip('hotspot');
-  </action>
-  <action name="onoverIconDefaultPointSpotStyle">
-
-tween(alpha, 1);
-
-  </action>
-  <action name="onoutIconDefaultPointSpotStyle">
-    hideTooltip();
-
-    tween(alpha, 0.8);
-
-  </action>
-
-
-
   <!-- unsupported kind of display : PointMap -->
 
 
@@ -91,47 +52,48 @@ tween(alpha, 1);
 
 
     
-  <!-- Spot Style - Default Point Spot Style 2 -->
+  <!-- Spot Style - Vpered -->
 
 
-  <style name="IconDefaultPointSpotStyle2"
-         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint2.png"
+  <style name="IconVpered"
+         url="%FIRSTXML%/spots/hotspot_direction_sequence_user_defaultpoint0.png"
          visible="false"
          frame="0"
-         lastframe="12"
-         framewidth="85"
-         frameheight="85"
+         lastframe="18"
+         framewidth="50"
+         frameheight="50"
          stopspotsequence="false"
-         crop="0|0|85|85"
+         crop="0|0|50|50"
          edge="center"
+         rotate="270"
+         alpha="0.8"
          onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconDefaultPointSpotStyle2"
-         onout="onoutIconDefaultPointSpotStyle2"
+         onhover="onhoverIconVpered"
+         onover="onoverIconVpered"
+         onout="onoutIconVpered"
 
 
          />
-  <action name="onhoverIconDefaultPointSpotStyle2">
+  <action name="onhoverIconVpered">
     showtooltip('hotspot');
   </action>
-  <action name="onoutIconDefaultPointSpotStyle2">
+  <action name="onoverIconVpered">
+
+tween(alpha, 1);
+
+  </action>
+  <action name="onoutIconVpered">
     hideTooltip();
 
-
+    tween(alpha, 0.8);
 
   </action>
 
 
 
-      
-  <!-- Picture Spot Style - Default Picture perehod -->
-
-
-  <style name="RectPictureDefaultPictureperehod"
-         distorted="true"
-         visible="false"
-         scale="1.0" 
-         />
-
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
 
 
   <!-- Fullscreen Management -->
@@ -145,10 +107,5 @@ tween(alpha, 1);
     keep="true" />
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
 
 </krpano>

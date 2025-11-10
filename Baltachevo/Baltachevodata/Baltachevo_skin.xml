@@ -1,45 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <krpano version="1.19-pr16">
 
-    
-  <!-- Spot Style - Default Point Spot Style -->
-
-
-  <style name="IconDefaultPointSpotStyle"
-         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint0.png"
-         visible="false"
-         frame="0"
-         lastframe="12"
-         framewidth="50"
-         frameheight="50"
-         stopspotsequence="false"
-         crop="0|0|50|50"
-         edge="center"
-         alpha="0.8"
-         onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconDefaultPointSpotStyle"
-         onover="onoverIconDefaultPointSpotStyle"
-         onout="onoutIconDefaultPointSpotStyle"
-
-
-         />
-  <action name="onhoverIconDefaultPointSpotStyle">
-    showtooltip('hotspot');
-  </action>
-  <action name="onoverIconDefaultPointSpotStyle">
-
-tween(alpha, 1);
-
-  </action>
-  <action name="onoutIconDefaultPointSpotStyle">
-    hideTooltip();
-
-    tween(alpha, 0.8);
-
-  </action>
-
-
-
   <!-- unsupported kind of display : PointMap -->
 
 
@@ -95,71 +56,6 @@ tween(alpha, 1);
     set(borderalpha, 0.0);
     set(fillalpha, 0.0);
     hideTooltip();
-  </action>
-
-
-
-    
-  <!-- Spot Style - Default Point Spot Style 2 -->
-
-
-  <style name="IconDefaultPointSpotStyle2"
-         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint2.png"
-         visible="false"
-         frame="0"
-         lastframe="12"
-         framewidth="85"
-         frameheight="85"
-         stopspotsequence="false"
-         crop="0|0|85|85"
-         edge="center"
-         onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconDefaultPointSpotStyle2"
-         onout="onoutIconDefaultPointSpotStyle2"
-
-
-         />
-  <action name="onhoverIconDefaultPointSpotStyle2">
-    showtooltip('hotspot');
-  </action>
-  <action name="onoutIconDefaultPointSpotStyle2">
-    hideTooltip();
-
-
-
-  </action>
-
-
-
-      
-  <!-- Picture Spot Style - Default Picture perehod -->
-
-
-  <style name="RectPictureDefaultPictureperehod"
-         distorted="true"
-         visible="false"
-         scale="1.0" 
-         onhover="onhoverRectPictureDefaultPictureperehod"
-         onover="onoverRectPictureDefaultPictureperehod"
-         onout="onoutRectPictureDefaultPictureperehod"
-         />
-  <action name="onhoverRectPictureDefaultPictureperehod">
-    showTooltip('hotspot');
-  </action>
-  <action name="onoverRectPictureDefaultPictureperehod">
-    
-    set(onhoverdelayRectPictureDefaultPictureperehod, 0);
-    div(onhoverdelayRectPictureDefaultPictureperehod, 1000);
-    roundval(onhoverdelayRectPictureDefaultPictureperehod, 2);
-    if(flying LE 0.0,tween(alpha, 1.0, get(onhoverdelayRectPictureDefaultPictureperehod)););
-  </action>
-  <action name="onoutRectPictureDefaultPictureperehod">
-    hideTooltip();
-    
-    set(onhoverdelayRectPictureDefaultPictureperehod, 0);
-    div(onhoverdelayRectPictureDefaultPictureperehod, 1000);
-    roundval(onhoverdelayRectPictureDefaultPictureperehod, 2);
-    if(flying LE 0.0,tween(alpha, 0.0, get(onhoverdelayRectPictureDefaultPictureperehod)););
   </action>
 
 
@@ -561,23 +457,6 @@ tween(alpha, 1);
 		autoalpha="true" alpha="0.0"
 		enabled="false"
 		/>	
-  <!-- Fullscreen Management -->
-  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
-  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
-  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
-
-  
-  <events name="krpanoExitFullscreenEvent"
-    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
-    keep="true" />
-
-  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
 	<!-- WebVR plugin for VR availability tests -->
 
 	<plugin name="ptpvrmode" devices="html5" keep="true"
@@ -605,4 +484,21 @@ tween(alpha, 1);
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
 </krpano>
