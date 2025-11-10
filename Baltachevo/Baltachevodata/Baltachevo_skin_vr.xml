@@ -1,6 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <krpano version="1.19-pr16">
 
+  <!-- unsupported kind of display : PointMap -->
+
+
+  
+  <!-- Spot Style - Default Polygon Spot Style -->
+  <style name="PolygonDefaultPolygonSpotStyle"
+           visible="false"
+           bordercolor="0xffffff"
+           fillcolor="0xffffff"
+           borderwidth="1"
+           borderalpha.desktop="0.0"
+           fillalpha.desktop="0.0"
+           borderalpha.tablet.or.mobile="1"
+           fillalpha.tablet.or.mobile="0.40000000000000002"
+           capture="false"
+           onhover="onhoverPolygonDefaultPolygonSpotStyle"
+           onover="onoverPolygonDefaultPolygonSpotStyle"
+           onout="onoutPolygonDefaultPolygonSpotStyle"
+           />
+  <action name="onhoverPolygonDefaultPolygonSpotStyle">
+    showTooltip('hotspot');
+  </action>
+
+  <action name="onoverPolygonDefaultPolygonSpotStyle">
+    set(borderwidth, 1);
+    set(borderalpha, 1);
+    set(fillalpha, 0.40000000000000002);
+  </action>
+
+  <action name="onoutPolygonDefaultPolygonSpotStyle">
+
+    set(borderwidth, 1);
+    set(borderalpha, 0.0);
+    set(fillalpha, 0.0);
+    hideTooltip();
+  </action>
+
+
+
     
   <!-- Spot Style - Default Point Spot Style -->
 
@@ -24,9 +63,6 @@
 
   </action>
 
-
-
-  <!-- unsupported kind of display : PointMap -->
 
 
 <!-- ********** -->
@@ -67,24 +103,6 @@
   <events name="HomeLogoshowevents" onremovepano="hideHomeLogo" onPanoStart="showHomeLogo" keep="true"/>
 
 
-  <action name="enableGyroscope">
-    changeGyroscopeState(true);
-  </action>
-  <action name="disableGyroscope">
-    changeGyroscopeState(false);
-  </action>
-
-
-  <!-- Tour Information -->
-  <action name="hideTourInfo">set(tour_displayinfo, false);events.dispatch(onhidetourinfo);</action>
-  <action name="showTourInfo">set(tour_displayinfo, true); events.dispatch(onshowtourinfo);</action>
-
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
@@ -96,5 +114,18 @@
     keep="true" />
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+  <action name="enableGyroscope">
+    changeGyroscopeState(true);
+  </action>
+  <action name="disableGyroscope">
+    changeGyroscopeState(false);
+  </action>
+
 
 </krpano>
