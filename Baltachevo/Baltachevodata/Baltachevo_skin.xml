@@ -462,7 +462,7 @@
 	<plugin name="ptpvrmode" devices="html5" keep="true"
 		url="%FIRSTXML%/graphics/webvr.js"
 		mobilevr_support="true"
-		mobilevr_fake_support="false"
+		mobilevr_fake_support="true"
 		vr_cursor=""
 		vr_cursor_enabled="false"
 		onavailable="delayedcall(1, checkVrAvailability(););"
@@ -484,11 +484,6 @@
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
@@ -500,5 +495,10 @@
     keep="true" />
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
 
 </krpano>
