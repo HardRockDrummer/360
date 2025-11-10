@@ -91,38 +91,6 @@ tween(alpha, 1);
 
 
     
-  <!-- Spot Style - Default Point Spot Style 1 -->
-
-
-  <style name="IconDefaultPointSpotStyle1"
-         url="%FIRSTXML%/spots/hotspot_direction_sequence_user_defaultpoint1.png"
-         visible="false"
-         frame="0"
-         lastframe="24"
-         framewidth="200"
-         frameheight="125"
-         stopspotsequence="false"
-         crop="0|0|200|125"
-         edge="center"
-         onloaded="startspotanimation(0.1);"
-         onhover="onhoverIconDefaultPointSpotStyle1"
-         onout="onoutIconDefaultPointSpotStyle1"
-
-
-         />
-  <action name="onhoverIconDefaultPointSpotStyle1">
-    showtooltip('hotspot');
-  </action>
-  <action name="onoutIconDefaultPointSpotStyle1">
-    hideTooltip();
-
-
-
-  </action>
-
-
-
-    
   <!-- Spot Style - Default Point Spot Style 2 -->
 
 
