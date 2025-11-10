@@ -131,6 +131,39 @@ tween(alpha, 1);
 
 
 
+      
+  <!-- Picture Spot Style - Default Picture perehod -->
+
+
+  <style name="RectPictureDefaultPictureperehod"
+         distorted="true"
+         visible="false"
+         scale="1.0" 
+         onhover="onhoverRectPictureDefaultPictureperehod"
+         onover="onoverRectPictureDefaultPictureperehod"
+         onout="onoutRectPictureDefaultPictureperehod"
+         />
+  <action name="onhoverRectPictureDefaultPictureperehod">
+    showTooltip('hotspot');
+  </action>
+  <action name="onoverRectPictureDefaultPictureperehod">
+    
+    set(onhoverdelayRectPictureDefaultPictureperehod, 0);
+    div(onhoverdelayRectPictureDefaultPictureperehod, 1000);
+    roundval(onhoverdelayRectPictureDefaultPictureperehod, 2);
+    if(flying LE 0.0,tween(alpha, 1.0, get(onhoverdelayRectPictureDefaultPictureperehod)););
+  </action>
+  <action name="onoutRectPictureDefaultPictureperehod">
+    hideTooltip();
+    
+    set(onhoverdelayRectPictureDefaultPictureperehod, 0);
+    div(onhoverdelayRectPictureDefaultPictureperehod, 1000);
+    roundval(onhoverdelayRectPictureDefaultPictureperehod, 2);
+    if(flying LE 0.0,tween(alpha, 0.0, get(onhoverdelayRectPictureDefaultPictureperehod)););
+  </action>
+
+
+
 <!-- ********** -->
 <!-- Circles Control Bar -->
 <!-- id : CirclesControlBar -->
