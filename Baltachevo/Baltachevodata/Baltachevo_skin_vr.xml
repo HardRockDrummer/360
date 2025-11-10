@@ -45,9 +45,16 @@
 
 
   <style name="IconDefaultPointSpotStyle"
-         url="%FIRSTXML%/spots/hotspot_neutral_user_defaultpoint0.png"
+         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint0.png"
          visible="false"
+         frame="0"
+         lastframe="12"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
          edge="center"
+         onloaded="startspotanimation(0.1);"
          onhover="onhoverIconDefaultPointSpotStyle"
          onout="onoutIconDefaultPointSpotStyle"
 
@@ -101,6 +108,45 @@
 
 
   <events name="HomeLogoshowevents" onremovepano="hideHomeLogo" onPanoStart="showHomeLogo" keep="true"/>
+
+
+<!-- ********** -->
+<!-- Nadir/Zenith Navigation Button -->
+<!-- id : NavLogo -->
+<!-- ********** -->
+
+  <hotspot ath="0" atv="90"
+         zorder="0"
+         name="NavLogo"
+         keep="true"
+           vr="true"
+           distorted="true"
+           depth="1000"
+         visible="false"
+         capture="false"
+         enable="true"
+
+         url="%FIRSTXML%/graphics/vr-navlogo/_1.jpg" 
+         onclick="loadNextScene();
+"
+
+
+         />
+
+  <events name="NavLogoevents" 
+    onTourStart="showNavLogo();"
+    keep="true" />
+
+  <action name="hideNavLogo">
+    set(hotspot[NavLogo].visible, false);
+  </action>
+  <action name="showNavLogo">
+      set(hotspot[NavLogo].visible, true);
+  </action>
+
+
+
+  <events name="NavLogoshowevents" onremovepano="hideNavLogo" onPanoStart="showNavLogo" keep="true"/>
 
 
   <!-- Fullscreen Management -->
