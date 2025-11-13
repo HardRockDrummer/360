@@ -38,19 +38,19 @@
 
 
       
-  <!-- Picture Spot Style - Default Picture Spot Style -->
+  <!-- Picture Spot Style - Photo -->
 
-  <style name="RectPictureDefaultPictureSpotStyle"
+  <style name="RectPicturePhoto"
          distorted="true"
          visible="false"
          scale="1.0" 
-         onhover="onhoverRectPictureDefaultPictureSpotStyle"
-         onout="onoutRectPictureDefaultPictureSpotStyle"
+         onhover="onhoverRectPicturePhoto"
+         onout="onoutRectPicturePhoto"
          />
-  <action name="onhoverRectPictureDefaultPictureSpotStyle">
+  <action name="onhoverRectPicturePhoto">
     showTooltip('hotspot');
   </action>
-  <action name="onoutRectPictureDefaultPictureSpotStyle">
+  <action name="onoutRectPicturePhoto">
     hideTooltip();
     
   </action>
@@ -157,6 +157,26 @@
 
 
 
+  </action>
+
+
+
+      
+  <!-- Picture Spot Style - Start -->
+
+  <style name="RectPictureStart"
+         distorted="true"
+         visible="false"
+         scale="1.0" 
+         onhover="onhoverRectPictureStart"
+         onout="onoutRectPictureStart"
+         />
+  <action name="onhoverRectPictureStart">
+    showTooltip('hotspot');
+  </action>
+  <action name="onoutRectPictureStart">
+    hideTooltip();
+    
   </action>
 
 
@@ -639,11 +659,6 @@
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
 
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
 	<!-- WebVR plugin for VR availability tests -->
 
 	<plugin name="ptpvrmode" devices="html5" keep="true"
@@ -671,6 +686,11 @@
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
   <!-- Sounds Management -->
   <plugin name="soundinterface"
           preload="true"

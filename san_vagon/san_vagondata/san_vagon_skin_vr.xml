@@ -38,9 +38,9 @@
 
 
       
-  <!-- Picture Spot Style - Default Picture Spot Style -->
+  <!-- Picture Spot Style - Photo -->
 
-  <style name="RectPictureDefaultPictureSpotStyle"
+  <style name="RectPicturePhoto"
          distorted="true"
          visible="false"
          scale="1.0" 
@@ -149,6 +149,17 @@
 
 
   </action>
+
+
+
+      
+  <!-- Picture Spot Style - Start -->
+
+  <style name="RectPictureStart"
+         distorted="true"
+         visible="false"
+         scale="1.0" 
+         />
 
 
 
