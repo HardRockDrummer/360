@@ -181,6 +181,40 @@
 
 
 
+    
+  <!-- Spot Style - start -->
+
+
+  <style name="Iconstart"
+         url="%FIRSTXML%/spots/hotspot_image_sequence_user_defaultpoint4.png"
+         visible="false"
+         frame="0"
+         lastframe="12"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
+         edge="center"
+         onloaded="startspotanimation(0.1);"
+         onhover="onhoverIconstart"
+         onout="onoutIconstart"
+
+
+         width="120"
+         height="prop"
+         />
+  <action name="onhoverIconstart">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconstart">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
 <!-- ********** -->
 <!-- Circles Control Bar -->
 <!-- id : CirclesControlBar -->

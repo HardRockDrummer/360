@@ -9,6 +9,10 @@
 
 
 
+  <data name="ru_pano978_title"><![CDATA[samii_start]]></data>
+  <data name="ru_spotpoint1125_tooltip"><![CDATA[Старт]]></data>
+
+
   <data name="ru_pano825_title"><![CDATA[start]]></data>
 
 
@@ -66,21 +70,22 @@
   <data name="ru_pano968_title"><![CDATA[ea_2735]]></data>
 
 
-	<data name="ru_spotmap952_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap953_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap954_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap955_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap956_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap957_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap958_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap959_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap960_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap961_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap962_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap963_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap964_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap967_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap970_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1271_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1272_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1273_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1274_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1275_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1276_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1277_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1278_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1279_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1280_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1281_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1282_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1283_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1284_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1285_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap1286_tooltip"><![CDATA[]]></data>
 
 
 
@@ -127,6 +132,9 @@
   <data name="ru_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
   <data name="ru_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
   <data name="ru_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
 
 
 
