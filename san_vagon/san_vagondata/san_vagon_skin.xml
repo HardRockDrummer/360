@@ -627,6 +627,23 @@
 
 
 
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
 	<!-- WebVR plugin for VR availability tests -->
 
 	<plugin name="ptpvrmode" devices="html5" keep="true"
@@ -654,23 +671,6 @@
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
-  <!-- Fullscreen Management -->
-  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
-  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
-  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
-
-  
-  <events name="krpanoExitFullscreenEvent"
-    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
-    keep="true" />
-
-  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
   <!-- Sounds Management -->
   <plugin name="soundinterface"
           preload="true"

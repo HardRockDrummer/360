@@ -49,16 +49,26 @@
   <data name="ru_spotpolygon84_tooltip"><![CDATA[Пройти]]></data>
 
 
-	<data name="ru_spotmap95_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap96_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap97_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap98_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap99_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap100_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap101_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap102_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap103_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap104_tooltip"><![CDATA[]]></data>
+  <data name="ru_pano142_title"><![CDATA[dlj_tjg]]></data>
+  <data name="ru_spotpolygon143_tooltip"><![CDATA[Пройти]]></data>
+
+
+  <data name="ru_pano175_title"><![CDATA[dlj_tjg]]></data>
+  <data name="ru_spotpolygon176_tooltip"><![CDATA[Пройти]]></data>
+
+
+	<data name="ru_spotmap413_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap414_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap415_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap416_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap417_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap418_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap419_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap420_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap421_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap422_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap423_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap424_tooltip"><![CDATA[]]></data>
 
 
 
@@ -105,6 +115,12 @@
   <data name="ru_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
   <data name="ru_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
   <data name="ru_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
+
+
+
 
 
 
