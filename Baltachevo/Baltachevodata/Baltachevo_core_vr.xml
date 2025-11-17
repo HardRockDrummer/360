@@ -111,9 +111,17 @@
       
 
 
-      loadscene(%1, get(projection_current_params), NOPREVIEW|MERGE|KEEPVIEW|KEEPMOVING, get(ptblendmode));
+      if(webvr AND webvr.isenabled,
+        webvr.lookat(calc(view.hlookat - panoview.h));
+      );
+
+      loadscene(%1, get(projection_current_params), NOPREVIEW|MERGE|KEEPVIEW, get(ptblendmode));
 
 
+
+      if(webvr AND webvr.isenabled,
+        webvr.lookat(calc(view.hlookat + panoview.h));
+      );
 
       ););
 
