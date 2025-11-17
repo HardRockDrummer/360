@@ -457,6 +457,11 @@
 		autoalpha="true" alpha="0.0"
 		enabled="false"
 		/>	
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
 	<!-- WebVR plugin for VR availability tests -->
 
 	<plugin name="ptpvrmode" devices="html5" keep="true"
@@ -495,10 +500,5 @@
     keep="true" />
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
 
 </krpano>
