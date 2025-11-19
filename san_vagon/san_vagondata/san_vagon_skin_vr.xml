@@ -219,6 +219,17 @@
 
 
 
+      
+  <!-- Picture Spot Style - pokaz_photo -->
+
+  <style name="RectPicturepokaz_photo"
+         distorted="true"
+         visible="false"
+         scale="1.0" 
+         />
+
+
+
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
