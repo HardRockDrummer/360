@@ -1033,7 +1033,7 @@
     preloadsound("zvuk_sanitarni.mp3");
     preloadsound("teplushka_rasskaz.mp3");
     preloadsound("loko_serii_e.mp3");
-    preloadsound("_1088108010741077109010891090107410801077_1080__1088108010751083107210961077108510801077_1074__107210881086107410861079.mp3");
+    preloadsound("privetstvie.mp3");
     preloadsound("predstavlenie_teplushki.mp3");
     preloadsound("predstavlenie_apteka.mp3");
     preloadsound("poka-poka.mp3");
