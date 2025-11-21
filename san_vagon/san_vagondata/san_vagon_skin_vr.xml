@@ -230,6 +230,11 @@
 
 
 
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
@@ -241,11 +246,6 @@
     keep="true" />
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
 
   <!-- Sounds Management -->
   <plugin name="soundinterface"
@@ -490,6 +490,25 @@
     );
   </action>
   <action name="preloadSounds">
+    preloadsound("zvuk_teplushka.mp3");
+    preloadsound("vnutri_parovoza.mp3");
+    preloadsound("zvuk_sanitarni.mp3");
+    preloadsound("teplushka_rasskaz.mp3");
+    preloadsound("loko_serii_e.mp3");
+    preloadsound("_1088108010741077109010891090107410801077_1080__1088108010751083107210961077108510801077_1074__107210881086107410861079.mp3");
+    preloadsound("predstavlenie_teplushki.mp3");
+    preloadsound("predstavlenie_apteka.mp3");
+    preloadsound("poka-poka.mp3");
+    preloadsound("mogno_pokinut_vagon.mp3");
+    preloadsound("tambur_sanitarni.mp3");
+    preloadsound("obmiv_i_perevjz.mp3");
+    preloadsound("avtoklavnaj.mp3");
+    preloadsound("priglas_v_koridor.mp3");
+    preloadsound("stanok_dlj_tjg.mp3");
+    preloadsound("apteka.mp3");
+    preloadsound("priglas_k_degurn.mp3");
+    preloadsound("priglas_v_wc.mp3");
+    preloadsound("deg_med.mp3");
   </action>
 
   <action name="play3DLocalSounds">
