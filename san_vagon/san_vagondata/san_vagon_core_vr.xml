@@ -3,7 +3,7 @@
   <!-- Global variables used by actions and plugins -->
   <krpano
         tour_soundson="true"
-        tour_soundsvolume="100"
+        tour_soundsvolume="88"
         tour_autotourenabled="false"
         tour_autorotateenabled="false"
         tour_controlmodemousetype="drag"
