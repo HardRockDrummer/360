@@ -31,6 +31,8 @@
   <data name="ru_CirclesControlBarautorotateOffTip"><![CDATA[Stop autorotation]]></data>
   <data name="ru_CirclesControlBardisplayHelpTip"><![CDATA[Show help screen]]></data>
   <data name="ru_CirclesControlBarhideHelpTip"><![CDATA[Hide help screen]]></data>
+  <data name="ru_CirclesControlBarenterVRTip"><![CDATA[VR mode]]></data>
+  <data name="ru_CirclesControlBarenterVRNotTip"><![CDATA[VR mode is unavailable]]></data>
   <data name="ru_CirclesControlBardisplayControlsTip"><![CDATA[Show controls]]></data>
   <data name="ru_CirclesControlBarhideControlsTip"><![CDATA[Hide controls]]></data>
   <data name="ru_CirclesControlBarctrlmodeDragTip"><![CDATA[Change control mode]]></data>
