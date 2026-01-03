@@ -62,51 +62,6 @@
 
 
 
-<action name="viewControlZoomIn">
-	if(%1,
-		if(%2,
-			if(%2 LT view.fovmin,
-				zoomto(get(view.fovmin));
-			,
-				if(%2 LT view.fov,
-					zoomto(%2);
-				);
-			);
-		,
-			set(fov_moveforce, -1);
-			delayedcall(0.1, viewControlZoomStop());
-		);
-	,
-		set(fov_moveforce, -1);
-	);
-</action>
-<action name="viewControlZoomOut">
-	if(%1,
-		if(%2,
-			if(%2 GT view.fovmax,
-				zoomto(get(view.fovmax));
-			,
-				if(%2 GT view.fov,
-					zoomto(%2);
-				);
-			);
-		,
-			set(fov_moveforce, +1);
-			delayedcall(0.1, viewControlZoomStop());
-		);
-	,
-		set(fov_moveforce, +1);
-	);
-</action>
-<action name="viewControlZoomStop">
-	set(fov_moveforce, 0);
-</action>
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
-
-
 <action name="viewControlMoveUp">
 	if(%1,
 		if(%2,
@@ -207,6 +162,46 @@
 	set(vlookat_moveforce, 0);
 </action>
 
+<action name="viewControlZoomIn">
+	if(%1,
+		if(%2,
+			if(%2 LT view.fovmin,
+				zoomto(get(view.fovmin));
+			,
+				if(%2 LT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, -1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, -1);
+	);
+</action>
+<action name="viewControlZoomOut">
+	if(%1,
+		if(%2,
+			if(%2 GT view.fovmax,
+				zoomto(get(view.fovmax));
+			,
+				if(%2 GT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, +1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, +1);
+	);
+</action>
+<action name="viewControlZoomStop">
+	set(fov_moveforce, 0);
+</action>
+
   <!-- Fullscreen Management -->
   <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
   <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
@@ -218,5 +213,10 @@
     keep="true" />
 
   <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
 
 </krpano>
