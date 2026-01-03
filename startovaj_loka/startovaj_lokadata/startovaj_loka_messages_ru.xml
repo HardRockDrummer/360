@@ -9,9 +9,6 @@
 
 
 
-  <data name="ru_pano354_title"><![CDATA[1_red]]></data>
-
-
   <data name="ru_pano360_title"><![CDATA[2_red]]></data>
 
 
@@ -21,10 +18,13 @@
   <data name="ru_pano368_title"><![CDATA[2_red]]></data>
 
 
-	<data name="ru_spotmap471_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap472_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap473_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap474_tooltip"><![CDATA[]]></data>
+  <data name="ru_pano475_title"><![CDATA[Pervaja]]></data>
+
+
+	<data name="ru_spotmap494_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap495_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap496_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap497_tooltip"><![CDATA[]]></data>
 
 
 
