@@ -37,6 +37,17 @@
 
 
 
+      
+  <!-- Picture Spot Style - pikture demo hide -->
+
+  <style name="RectPicturepikturedemohide"
+         distorted="true"
+         visible="false"
+         scale="1.0" 
+         />
+
+
+
     
   <!-- Spot Style - Default Point Spot Style -->
 
@@ -60,11 +71,6 @@
 
   </action>
 
-
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
 
 
 <action name="viewControlZoomIn">
@@ -106,6 +112,11 @@
 <action name="viewControlZoomStop">
 	set(fov_moveforce, 0);
 </action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
 
 <action name="viewControlMoveUp">
 	if(%1,

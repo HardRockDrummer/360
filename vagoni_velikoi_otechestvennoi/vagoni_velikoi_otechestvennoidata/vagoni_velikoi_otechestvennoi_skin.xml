@@ -64,6 +64,26 @@
 
 
 
+      
+  <!-- Picture Spot Style - pikture demo hide -->
+
+  <style name="RectPicturepikturedemohide"
+         distorted="true"
+         visible="false"
+         scale="1.0" 
+         onhover="onhoverRectPicturepikturedemohide"
+         onout="onoutRectPicturepikturedemohide"
+         />
+  <action name="onhoverRectPicturepikturedemohide">
+    showTooltip('hotspot');
+  </action>
+  <action name="onoutRectPicturepikturedemohide">
+    hideTooltip();
+    
+  </action>
+
+
+
 <!-- ********** -->
 <!-- Circles Control Bar -->
 <!-- id : CirclesControlBar -->
@@ -734,16 +754,9 @@ if (device.desktop,
   <action name="countdowntotheDelayAction">
 	delayedcall	(5.0, 
 				    
-          mainloadscene(pano686);lookat(-9.000000, 51.750000, 90.000000);
-
 
 				);
   </action>
-
-
-  <!-- Hide / Show Controls -->
-  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
-  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
 
 
 <action name="viewControlZoomIn">
@@ -785,6 +798,11 @@ if (device.desktop,
 <action name="viewControlZoomStop">
 	set(fov_moveforce, 0);
 </action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
 
 <action name="viewControlMoveUp">
 	if(%1,
@@ -886,6 +904,18 @@ if (device.desktop,
 	set(vlookat_moveforce, 0);
 </action>
 
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+
 	<!-- WebVR plugin for VR availability tests -->
 
 	<plugin name="ptpvrmode" devices="html5" keep="true"
@@ -913,16 +943,4 @@ if (device.desktop,
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
-  <!-- Fullscreen Management -->
-  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
-  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
-  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
-
-  
-  <events name="krpanoExitFullscreenEvent"
-    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
-    keep="true" />
-
-  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
 </krpano>

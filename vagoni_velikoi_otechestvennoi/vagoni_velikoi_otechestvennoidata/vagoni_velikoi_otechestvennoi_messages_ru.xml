@@ -9,22 +9,30 @@
 
 
 
-  <data name="ru_pano630_title"><![CDATA[nachalo_alternativ]]></data>
+  <data name="ru_pano816_title"><![CDATA[nachalo_alternativ]]></data>
 
 
-  <data name="ru_pano619_title"><![CDATA[ea]]></data>
+  <data name="ru_pano838_title"><![CDATA[ea]]></data>
 
 
-  <data name="ru_pano672_title"><![CDATA[teplushka]]></data>
+  <data name="ru_pano861_title"><![CDATA[ea_2735_photo]]></data>
 
 
-  <data name="ru_pano686_title"><![CDATA[apteka]]></data>
+  <data name="ru_pano901_title"><![CDATA[teplushka]]></data>
 
 
-	<data name="ru_spotmap812_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap813_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap814_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap815_tooltip"><![CDATA[]]></data>
+  <data name="ru_pano914_title"><![CDATA[teplushka (2)]]></data>
+
+
+  <data name="ru_pano918_title"><![CDATA[apteka]]></data>
+
+
+	<data name="ru_spotmap894_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap895_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap896_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap903_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap916_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap920_tooltip"><![CDATA[]]></data>
 
 
 
@@ -81,6 +89,12 @@
   <data name="ru_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
   <data name="ru_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
   <data name="ru_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
+
+
+
 
 
 
