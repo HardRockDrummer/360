@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <krpano version="1.19-pr16">
 
+    
+  <!-- Spot Style - naklon_vpravo -->
+
+
+  <style name="Iconnaklon_vpravo"
+         url="%FIRSTXML%/spots/shagi_animation_user_defaultpoint0.gif"
+         visible="false"
+         edge="center"
+         rotate="15"
+         onhover="onhoverIconnaklon_vpravo"
+         onout="onoutIconnaklon_vpravo"
+
+
+         width="80"
+         height="prop"
+         />
+  <action name="onhoverIconnaklon_vpravo">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconnaklon_vpravo">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
   <!-- unsupported kind of display : PointMap -->
 
 
@@ -80,6 +108,120 @@
   <action name="onoutRectPicturepikturedemohide">
     hideTooltip();
     
+  </action>
+
+
+
+    
+  <!-- Spot Style - Default Point Spot Style 1 -->
+
+
+  <style name="IconDefaultPointSpotStyle1"
+         url="%FIRSTXML%/spots/shagi_animation_user_defaultpoint1.gif"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconDefaultPointSpotStyle1"
+         onout="onoutIconDefaultPointSpotStyle1"
+
+
+         width="80"
+         height="prop"
+         />
+  <action name="onhoverIconDefaultPointSpotStyle1">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconDefaultPointSpotStyle1">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - naklon_vlevo -->
+
+
+  <style name="Iconnaklon_vlevo"
+         url="%FIRSTXML%/spots/shagi_animation_user_defaultpoint2.gif"
+         visible="false"
+         edge="center"
+         rotate="345"
+         onhover="onhoverIconnaklon_vlevo"
+         onout="onoutIconnaklon_vlevo"
+
+
+         width="80"
+         height="prop"
+         />
+  <action name="onhoverIconnaklon_vlevo">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconnaklon_vlevo">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - exit -->
+
+
+  <style name="Iconexit"
+         url="%FIRSTXML%/spots/exit_user_defaultpoint3.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconexit"
+         onout="onoutIconexit"
+
+
+         width="60"
+         height="prop"
+         />
+  <action name="onhoverIconexit">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconexit">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - info -->
+
+
+  <style name="Iconinfo"
+         url="%FIRSTXML%/spots/hotspot_information_sequence_user_defaultpoint4.png"
+         visible="false"
+         frame="0"
+         lastframe="9"
+         framewidth="50"
+         frameheight="50"
+         stopspotsequence="false"
+         crop="0|0|50|50"
+         edge="center"
+         onloaded="startspotanimation(0.1);"
+         onhover="onhoverIconinfo"
+         onout="onoutIconinfo"
+
+
+         />
+  <action name="onhoverIconinfo">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconinfo">
+    hideTooltip();
+
+
+
   </action>
 
 
@@ -759,45 +901,17 @@ if (device.desktop,
   </action>
 
 
-<action name="viewControlZoomIn">
-	if(%1,
-		if(%2,
-			if(%2 LT view.fovmin,
-				zoomto(get(view.fovmin));
-			,
-				if(%2 LT view.fov,
-					zoomto(%2);
-				);
-			);
-		,
-			set(fov_moveforce, -1);
-			delayedcall(0.1, viewControlZoomStop());
-		);
-	,
-		set(fov_moveforce, -1);
-	);
-</action>
-<action name="viewControlZoomOut">
-	if(%1,
-		if(%2,
-			if(%2 GT view.fovmax,
-				zoomto(get(view.fovmax));
-			,
-				if(%2 GT view.fov,
-					zoomto(%2);
-				);
-			);
-		,
-			set(fov_moveforce, +1);
-			delayedcall(0.1, viewControlZoomStop());
-		);
-	,
-		set(fov_moveforce, +1);
-	);
-</action>
-<action name="viewControlZoomStop">
-	set(fov_moveforce, 0);
-</action>
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
 
   <!-- Hide / Show Controls -->
   <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
@@ -904,18 +1018,6 @@ if (device.desktop,
 	set(vlookat_moveforce, 0);
 </action>
 
-  <!-- Fullscreen Management -->
-  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);set(fullscreen,false);</action>
-  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);set(fullscreen,true);</action>
-  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
-
-  
-  <events name="krpanoExitFullscreenEvent"
-    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
-    keep="true" />
-
-  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
-
 	<!-- WebVR plugin for VR availability tests -->
 
 	<plugin name="ptpvrmode" devices="html5" keep="true"
@@ -943,4 +1045,44 @@ if (device.desktop,
 		set(tour_vrdevices, false);
 		events.dispatch(onvrunavailable);
 	</action>
+<action name="viewControlZoomIn">
+	if(%1,
+		if(%2,
+			if(%2 LT view.fovmin,
+				zoomto(get(view.fovmin));
+			,
+				if(%2 LT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, -1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, -1);
+	);
+</action>
+<action name="viewControlZoomOut">
+	if(%1,
+		if(%2,
+			if(%2 GT view.fovmax,
+				zoomto(get(view.fovmax));
+			,
+				if(%2 GT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, +1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, +1);
+	);
+</action>
+<action name="viewControlZoomStop">
+	set(fov_moveforce, 0);
+</action>
+
 </krpano>
