@@ -73,6 +73,47 @@
 			}
 		</style>
 
+<script type="text/javascript">
+    // Обработчик событий мыши для Android
+    function initMouseSupport() {
+        const panoDiv = document.getElementById('panoDIV');
+
+        if (!panoDiv) return;
+
+        // Обработчик движения мыши
+        panoDiv.addEventListener('mousemove', function(e) {
+            if (window.krpano) {
+                // Передаём координаты мыши в krpano
+                krpano.call(`mousepos(${e.clientX}, ${e.clientY})`);
+            }
+        });
+
+        // Обработчик прокрутки колёсиком
+        panoDiv.addEventListener('wheel', function(e) {
+            e.preventDefault(); // Предотвращаем стандартную прокрутку страницы
+            if (window.krpano) {
+                const delta = e.deltaY > 0 ? -1 : 1;
+                krpano.call(`zoom(${delta * 0.1})`); // Масштабирование
+            }
+        }, { passive: false });
+
+        // Обработчик нажатия кнопок мыши
+        panoDiv.addEventListener('mousedown', function(e) {
+            if (window.krpano && e.button === 0) { // Левая кнопка
+                krpano.call('mouseup()'); // Симулируем отпускание мыши в krpano
+            }
+        });
+
+        // Добавляем CSS‑классы для курсоров
+        panoDiv.classList.add('cursorDragMode'); // Устанавливаем курсор «grab»
+    }
+
+    // Инициализируем поддержку мыши после загрузки плеера
+    window.addEventListener('load', function() {
+        setTimeout(initMouseSupport, 1000); // Даём время на загрузку плеера
+    });
+</script>
+
 		<script type="text/javascript">
 
 			function readDeviceOrientation() {
@@ -99,26 +140,6 @@
 						window.addEventListener("resize", readDeviceOrientation);
 						window.addEventListener("orientationchange", readDeviceOrientation);
 					}
-@Override
-public boolean onGenericMotionEvent(MotionEvent event) {
-    if ((event.getSource() & InputDevice.SOURCE_CLASS_POINTER) != 0) {
-        switch (event.getAction()) {
-            case MotionEvent.ACTION_HOVER_MOVE:
-                // Движение курсора мыши над View
-                float x = event.getX();
-                float y = event.getY();
-                // Обработка координат курсора
-                return true;
-            case MotionEvent.ACTION_SCROLL:
-                // Прокрутка колёсиком мыши
-                float verticalScroll = event.getAxisValue(MotionEvent.AXIS_VSCROLL);
-                float horizontalScroll = event.getAxisValue(MotionEvent.AXIS_HSCROLL);
-                // Обработка прокрутки
-                return true;
-        }
-    }
-    return super.onGenericMotionEvent(event);
-}
 					//initial execution
 					setTimeout(function(){readDeviceOrientation();},10);
 				}
