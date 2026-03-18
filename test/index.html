@@ -71,48 +71,18 @@
 				cursor: -webkit-grab;
 				cursor: url(testdata/graphics/cursors_drag_html5.cur), default;
 			}
+div#panoDIV.cursorDragMode {
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+}
+
+div#panoDIV.cursorDragMode:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
+}
 		</style>
-
-<script type="text/javascript">
-    // Обработчик событий мыши для Android
-    function initMouseSupport() {
-        const panoDiv = document.getElementById('panoDIV');
-
-        if (!panoDiv) return;
-
-        // Обработчик движения мыши
-        panoDiv.addEventListener('mousemove', function(e) {
-            if (window.krpano) {
-                // Передаём координаты мыши в krpano
-                krpano.call(`mousepos(${e.clientX}, ${e.clientY})`);
-            }
-        });
-
-        // Обработчик прокрутки колёсиком
-        panoDiv.addEventListener('wheel', function(e) {
-            e.preventDefault(); // Предотвращаем стандартную прокрутку страницы
-            if (window.krpano) {
-                const delta = e.deltaY > 0 ? -1 : 1;
-                krpano.call(`zoom(${delta * 0.1})`); // Масштабирование
-            }
-        }, { passive: false });
-
-        // Обработчик нажатия кнопок мыши
-        panoDiv.addEventListener('mousedown', function(e) {
-            if (window.krpano && e.button === 0) { // Левая кнопка
-                krpano.call('mouseup()'); // Симулируем отпускание мыши в krpano
-            }
-        });
-
-        // Добавляем CSS‑классы для курсоров
-        panoDiv.classList.add('cursorDragMode'); // Устанавливаем курсор «grab»
-    }
-
-    // Инициализируем поддержку мыши после загрузки плеера
-    window.addEventListener('load', function() {
-        setTimeout(initMouseSupport, 1000); // Даём время на загрузку плеера
-    });
-</script>
 
 		<script type="text/javascript">
 
@@ -159,34 +129,29 @@
 				loadPlayer(false, curScene, curTime);
 			}
 			function loadPlayer(isWebVr, curScene, curTime) {
-				if (isWebVr) {
-					embedpano({
-						id:"krpanoSWFObject"
-						,xml:"testdata/test_vr.xml"
-						,target:"panoDIV"
-						,passQueryParameters:true
-						,bgcolor:"#000000"
-						,html5:"only+webgl"
-						,focus: false
-						,vars:{skipintro:true,norotation:true,startscene:curScene,starttime:curTime }
-					});
-				} else {
-					
-					var isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
-					embedpano({
-						id:"krpanoSWFObject"
-
-						,swf:"testdata/test.swf"
-
-						,target:"panoDIV"
-						,passQueryParameters:true
-						,bgcolor:"#000000"
-						,focus: false
-						,html5:isBot ? "always" : "prefer"
-						,vars:{startscene:curScene,starttime:curTime}
-
-						,localfallback:"flash"
-
+    if (isWebVr) {
+        embedpano({
+            id: "krpanoSWFObject",
+            xml: "testdata/test_vr.xml",
+            target: "panoDIV",
+            passQueryParameters: true,
+            bgcolor: "#000000",
+            html5: "only+webgl",
+            focus: true, // Важно для получения событий мыши
+            vars: { skipintro: true, norotation: true, startscene: curScene, starttime: curTime }
+        });
+    } else {
+        var isBot = /bot|googlebot|crawler|spider|robot|crawling/i.test(navigator.userAgent);
+        embedpano({
+            id: "krpanoSWFObject",
+            swf: "testdata/test.swf",
+            target: "panoDIV",
+            passQueryParameters: true,
+            bgcolor: "#000000",
+            focus: true, // Важно для получения событий мыши
+            html5: isBot ? "always" : "prefer",
+            vars: { startscene: curScene, starttime: curTime },
+            localfallback: "flash"
 
 					});
 				}
@@ -256,5 +221,45 @@
 				</script>
 			</div>
 		</div>
+<script type="text/javascript">
+    // Обработчик событий мыши для Android
+    function initMouseSupport() {
+        const panoDiv = document.getElementById('panoDIV');
+
+        if (!panoDiv) return;
+
+        // Обработчик движения мыши
+        panoDiv.addEventListener('mousemove', function(e) {
+            if (window.krpano) {
+                // Передаём координаты мыши в krpano
+                krpano.call(`mousepos(${e.clientX}, ${e.clientY})`);
+            }
+        });
+
+        // Обработчик прокрутки колёсиком
+        panoDiv.addEventListener('wheel', function(e) {
+            e.preventDefault(); // Предотвращаем стандартную прокрутку страницы
+            if (window.krpano) {
+                const delta = e.deltaY > 0 ? -1 : 1;
+                krpano.call(`zoom(${delta * 0.1})`); // Масштабирование
+            }
+        }, { passive: false });
+
+        // Обработчик нажатия кнопок мыши
+        panoDiv.addEventListener('mousedown', function(e) {
+            if (window.krpano && e.button === 0) { // Левая кнопка
+                krpano.call('mouseup()'); // Симулируем отпускание мыши в krpano
+            }
+        });
+
+        // Добавляем CSS‑классы для курсоров
+        panoDiv.classList.add('cursorDragMode'); // Устанавливаем курсор «grab»
+    }
+
+    // Инициализируем поддержку мыши после загрузки плеера
+    window.addEventListener('load', function() {
+        setTimeout(initMouseSupport, 1000); // Даём время на загрузку плеера
+    });
+</script>
 	</body>
 </html>
