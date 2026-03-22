@@ -1,7 +1,7 @@
 // Garden Gnome Software - Skin
 // Pano2VR 7.1.11/21010
 // Filename: silhouette_cardboard.ggsk
-// Generated 2026-03-22T22:55:45
+// Generated 2026-03-22T23:19:58
 
 function pano2vrSkin(player,base) {
 	player.addVariable('ht_ani', 2, false, { ignoreInState: 0  });
