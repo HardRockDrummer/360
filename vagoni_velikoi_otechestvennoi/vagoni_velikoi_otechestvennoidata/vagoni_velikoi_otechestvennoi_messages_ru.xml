@@ -9,6 +9,9 @@
 
 
 
+  <data name="ru_pano5811_title"><![CDATA[limbo]]></data>
+
+
   <data name="ru_pano816_title"><![CDATA[nachalo_alternativ]]></data>
 
 
@@ -180,63 +183,64 @@
   <data name="ru_pano5089_title"><![CDATA[apteka]]></data>
 
 
-	<data name="ru_spotmap5754_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5755_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5756_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5757_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5758_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5759_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5760_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5761_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5762_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5763_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5764_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5765_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5766_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5767_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5768_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5769_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5770_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5771_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5772_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5773_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5774_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5775_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5776_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5777_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5778_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5779_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5780_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5781_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5782_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5783_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5784_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5785_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5786_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5787_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5788_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5789_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5790_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5791_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5792_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5793_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5794_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5795_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5796_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5797_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5798_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5799_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5800_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5801_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5802_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5803_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5804_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5805_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5806_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5807_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5808_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5809_tooltip"><![CDATA[]]></data>
-	<data name="ru_spotmap5810_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8911_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8912_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8913_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8914_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8915_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8916_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8917_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8918_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8919_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8920_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8921_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8922_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8923_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8924_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8925_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8926_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8927_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8928_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8929_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8930_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8931_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8932_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8933_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8934_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8935_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8936_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8937_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8938_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8939_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8940_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8941_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8942_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8943_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8944_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8945_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8946_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8947_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8948_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8949_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8950_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8951_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8952_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8953_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8954_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8955_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8956_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8957_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8958_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8959_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8960_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8961_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8962_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8963_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8964_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8965_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8966_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8967_tooltip"><![CDATA[]]></data>
+	<data name="ru_spotmap8968_tooltip"><![CDATA[]]></data>
 
 
 
@@ -293,6 +297,9 @@
   <data name="ru_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
   <data name="ru_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
   <data name="ru_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
 
 
 

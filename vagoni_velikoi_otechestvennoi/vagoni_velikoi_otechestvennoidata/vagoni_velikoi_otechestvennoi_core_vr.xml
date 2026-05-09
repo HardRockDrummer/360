@@ -88,6 +88,18 @@
 
 
 
+  <events name="ptp_audio_events" devices="mobile.or.tablet.or.safari.or.chrome" keep="true"
+    onTourStart="ptp_audio_start_event();"
+    />
+  <action name="ptp_audio_start_event" devices="mobile.or.tablet.or.safari.or.chrome">
+    set(events[ptp_audio_events].onTourStart, null);
+    ptp_audio_start();
+  </action>
+  <action name="ptp_audio_start" devices="mobile.or.tablet.or.safari.or.chrome">
+    if (tour_soundson === true,
+      playTourSounds();
+    );
+  </action>
 
 
 
@@ -106,9 +118,12 @@
       events.dispatch(onleavingscene, true);
 
       interruptAnimation();
+      resetbackgroundsoundifneeded(%1);
+
+      set(videoscenestarttime, 0);
 
       for(set(scenei,0), scenei LT scene.count, inc(scenei),if(scene[get(scenei)].name == %1,
-      
+      stopTourSoundsActions(true,true,true,false);
 
 
       if(webvr AND webvr.isenabled,
@@ -706,6 +721,9 @@ stopautorotation();
 
 	<action name="webvr_onentervr">
 
+        if(device.mobile OR device.tablet OR device.safari OR device.chrome,
+			ptp_audio_start();
+		);
 
 		vr_tour_start();
 
